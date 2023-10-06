@@ -23,6 +23,7 @@ Join the class on the World Videophone using the following link:
 - [Discord](https://discord.gg/vQEgsb4E)
 
 ## Week 3 
+- [Recording](https://tudublin-my.sharepoint.com/:v:/g/personal/bryan_duggan_tudublin_ie/EeYq8HOEu7JLk1Ye7TCXIcQBQvlp4_UCS78iR-X323Ox6Q?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZyIsInJlZmVycmFsQXBwUGxhdGZvcm0iOiJXZWIiLCJyZWZlcnJhbE1vZGUiOiJ2aWV3In19&e=h71mOT)
 
 Lab 
 
