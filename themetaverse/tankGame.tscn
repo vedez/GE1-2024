@@ -70,4 +70,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -10)
 
 [node name="CharacterBody3D2" type="CharacterBody3D" parent="tank"]
 
+[node name="Button" type="Button" parent="tank"]
+offset_left = 106.0
+offset_top = 83.0
+offset_right = 286.0
+offset_bottom = 183.0
+
 [editable path="tank"]
