@@ -34,11 +34,10 @@ func _physics_process(delta):
 	
 	var v  = speed * forward * delta		
 	
-	
 	# Add a noise 
-#	var n = Vector3(noise.get_noise_1d(t), noise.get_noise_1d(t + 100),  1)
-#	n = global_transform.basis * (n) * 0.05
-	# DebugDraw.draw_arrow_line(Vector3.ZERO, n * 50, Color.red, 0.1)
+	var n = Vector3(noise.get_noise_1d(t), noise.get_noise_1d(t + 100),  1)
+	n = global_transform.basis * (n) * 0.05
+	DebugDraw.draw_arrow_line(Vector3.ZERO, n * 50, Color.RED, 0.1)
 	# I think this should return true when a collision happens, but it doesnt
 #	v += n
 	# var collision = move_and_collide(v)	

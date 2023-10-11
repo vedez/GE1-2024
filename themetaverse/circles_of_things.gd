@@ -31,5 +31,3 @@ func _ready():
 func _process(delta):
 	DebugDraw.draw_sphere(transform.origin, r, Color.BLUE)
 
-	
-
