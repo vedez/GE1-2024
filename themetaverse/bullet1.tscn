@@ -2,15 +2,14 @@
 
 [ext_resource type="Script" path="res://Bullet.gd" id="1"]
 [ext_resource type="Material" path="res://Tank Material.tres" id="2_tjw4x"]
-[ext_resource type="AudioStream" uid="uid://bl3ratrk2ga41" path="res://sounds/Laser_Shoot26.wav" id="5"]
+[ext_resource type="AudioStream" uid="uid://do6hj4ybomysr" path="res://sounds/Laser_Shoot26.wav" id="5"]
 
 [sub_resource type="BoxShape3D" id="2"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_dguxd"]
 
 [node name="bullet" type="CharacterBody3D"]
-collision_layer = 4
-collision_mask = 11
+motion_mode = 1
 script = ExtResource("1")
 speed = 1.0
 

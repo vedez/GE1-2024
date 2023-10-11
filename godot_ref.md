@@ -10,35 +10,36 @@
 | F9 | Toggle breakpoint |
 | F10 | Step out |
 | F11 | Step into |
-| Ctrl  \ | |
+| Ctrl  \ | Show hide recently opened files |
 | Ctrl  S | |
-| Ctrl  K | |
-| Ctrl R | |
-| Ctrl F | |
-| Shift Ctrl F | |
-| Ctrl C | |
-| Ctrl V | |
-| Ctrl Shift F11 | |
+| Ctrl  K | Comment a line |
+| Ctrl R | Search/Replace current file |
+| Ctrl F | Search current file |
+| Shift Ctrl F | Find in files |
+| Shift Ctrl R | Replace in files |
+| Ctrl Shift F11 | Max space for editing |
 
 ## GDScript Reference 
 
 |Code | Description                                            |
-|-----------------------------------------|----------------------------------------------------------------|
-| func _ready(): ...                                             |
-| if condition: ... else: ...                                    |
-| for i in range(length): ...                                    |
-| while condition: ...                                           |
-| var i = 0                                                      |
-| var f = 0.0                                                    |
-| var v = Vector3(1, 2, 3)                                       |
-| var obj = preload("res://path/to/prefab.tscn").instance()       |
+|-----------------------------------------|----------------------------------------------------------------|---|
+| func _ready():                                              |  |
+| if condition:  else:                                     |  |
+| if condition:  elif:                                     |  |
+| for i in range(length):                                  |  |
+| while condition:                                          |  |
+| var i = 0                                                      | |
+| var f = 0.0                                                    | | 
+| var v = Vector3(1, 2, 3)                                       | |
+| @export var bulletPrefab:PackedScene | Give a node a reference to a packedscene (prefab) that can be instiantiated later | 
+| var bullet = bulletPrefab.instantiate() | Create a new node from a packedscene
+|
 | class_name MyClass extends Node: ...                            |
 | Something.new()
 | func my_method(): ...                                          |
-| @export var my_property setget my_property_setter, my_property_getter |
 | get_node("/path/to/node").get_node("MyComponent")               |
 | var rigidbody = get_node("/path/to/node").get_node("RigidBody") |
-| yield(get_tree().create_timer(duration), "timeout")            |
+| yield(get_tree().create_timer(duration), "timeout")            | This is a coroutine. Timers are better |
 | Input.is_action_pressed("ui_accept")                           |
 | global_translation *or* global_transform.origin                                                      |
 | var basis = global_transform.basis *or* var rot = Quat(global_transform.basis) *or* var rot = global_transform.basis.rotation_quat()                                       |
