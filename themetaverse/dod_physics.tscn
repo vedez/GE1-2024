@@ -1,6 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dajk1oava0d0c"]
-
-[ext_resource type="Script" path="res://rotate_me.gd" id="1_60ld1"]
+[gd_scene load_steps=5 format=3 uid="uid://dwek4dvynv3km"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qvprf"]
 resource_name = "phong1"
@@ -39,10 +37,15 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_5fe5j")
 
-[node name="Node3D" type="Node3D"]
-script = ExtResource("1_60ld1")
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_axst4"]
+points = PackedVector3Array(-0.56346, -0.183189, -0.0949343, -0.359939, -0.116964, -0.465739, -0.00319898, -0.590365, -0.107098, -0.343062, -0.475713, 0.126769, -0.557172, 0.183189, 0.126769, 0.332693, -0.117079, -0.48541, -0.013568, -0.368689, -0.473246, -0.34957, 0.475713, -0.107098, -0.227678, 0.290213, -0.473246, 0.200322, 0.290213, -0.48541, 0.34946, -0.475829, 0.107003, -0.200432, -0.290328, 0.48541, -0.332803, 0.116964, 0.48541, 0.00308865, 0.590365, 0.107003, 0.557062, -0.183305, -0.126864, 0.342952, 0.475598, -0.126864, 0.56346, 0.183073, 0.0948393, 0.359829, 0.116848, 0.465644, 0.227568, -0.290328, 0.473151, 0.0134577, 0.368574, 0.473151)
+
+[node name="RigidBody3D" type="RigidBody3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 gi_mode = 0
 mesh = SubResource("ArrayMesh_pskff")
 skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_axst4")

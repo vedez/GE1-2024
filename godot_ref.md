@@ -34,6 +34,7 @@
 | Timer | Node that send signals on an interval |
 | Camera3D | |
 
+
 ## Transforms
 
 | Movement | translate, move_slide, move_collide | 
@@ -51,7 +52,6 @@ $Timer.start(1.0 / fireRate)
 
 ## GDScript Reference 
 
-#
 
 |Code | Description                                            |
 |-----------------------------------------|----------------------------------------------------------------|---|
@@ -102,3 +102,6 @@ $Timer.start(1.0 / fireRate)
 
 get_parent()
 find_child()
+
+@tool
+@export

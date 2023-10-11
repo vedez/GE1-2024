@@ -1,3 +1,4 @@
+@tool
 extends Node3D
 
 @export var dod:PackedScene
@@ -26,6 +27,7 @@ func _ready():
 			james.get_node("MeshInstance3D").material_override = newMaterial
 			
 			add_child(james)
+			
 func _process(delta):
 	DebugDraw.draw_sphere(transform.origin, r, Color.BLUE)
 

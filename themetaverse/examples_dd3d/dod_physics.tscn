@@ -1,6 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dajk1oava0d0c"]
-
-[ext_resource type="Script" path="res://rotate_me.gd" id="1_60ld1"]
+[gd_scene load_steps=5 format=3 uid="uid://cp0xvxo22nhm1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qvprf"]
 resource_name = "phong1"
@@ -39,10 +37,14 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_5fe5j")
 
-[node name="Node3D" type="Node3D"]
-script = ExtResource("1_60ld1")
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_nr5bq"]
+
+[node name="RigidBody3D" type="RigidBody3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 gi_mode = 0
 mesh = SubResource("ArrayMesh_pskff")
 skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_nr5bq")
