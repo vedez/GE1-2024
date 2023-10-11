@@ -34,6 +34,7 @@ func _ready():
 func _process(delta):
 
 
+
 	if can_move:
 		var v = Vector3.ZERO
 		
