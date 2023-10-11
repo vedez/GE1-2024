@@ -36,7 +36,7 @@ func _process(delta):
 	
 	# rotate_y(0.1)
 	# rotate_x(0.1)
-	var move = Input.get_axis("move_forward", "move_back")
+	var move = Input.get_axis("move_for", "move_back")
 	if abs(move) > 0:     
 		# set_velocity(- transform.basis.z * speed * move)
 		# move_and_slide()
