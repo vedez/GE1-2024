@@ -19,7 +19,39 @@
 | Shift Ctrl R | Replace in files |
 | Ctrl Shift F11 | Max space for editing |
 
+## Important Nodes
+
+| Node | Purpose |
+| -----| --------|
+| Node3D | | Node with a transform |
+| XROrigin3D | Origin of the world in VR |
+| XRCamera3D | Tracked Camera in VR |
+| DirectionalLight | |
+| StaticBody3D | World rigid body |
+| CollisionShape3D | Requred to respond to collisions. Set the Shape property |
+| MeshInstance3D | 3D mesh renderer |
+| CharacterBody3D | Kinematic rigid body |
+| Timer | Node that send signals on an interval |
+| Camera3D | |
+
+## Transforms
+
+| Movement | translate, move_slide, move_collide | 
+| Setting the position | position =, transform.origin =, global_transform.origin = 
+| Rotating | rotate, rotate_x, rotate_y, rotate_z |
+| Setting the rotation | rotation = Vector3(x, y, z). This is in radians. Also can be done using transform.basis.rotated() and global_transform.basis.rotated(), or Basis ( Quaternion from ) | 
+
+## Referencing other nodes
+
+```Python
+$"..".add_child(bullet) 
+$CharacterBody3D/Turret/bulletSpawn.global_transform.basis
+$Timer.start(1.0 / fireRate)
+```
+
 ## GDScript Reference 
+
+#
 
 |Code | Description                                            |
 |-----------------------------------------|----------------------------------------------------------------|---|
@@ -67,3 +99,6 @@
 | basis.xform() |
 | DebugDraw.draw_sphere(target.global_transform.origin, slowing_radius, Color.aquamarine) |
 | DebugDraw.draw_line(boid.global_transform.origin, feeler.hit_target, Color.chartreuse) *or* DebugDraw.draw_arrow_line(feeler.hit_target, feeler.hit_target + feeler.normal, Color.blue, 0.1) |
+
+get_parent()
+find_child()
