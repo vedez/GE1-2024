@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bsd26l7esfabd"]
+[gd_scene load_steps=20 format=3 uid="uid://bsd26l7esfabd"]
 
 [ext_resource type="Script" path="res://FPController.gd" id="1_sbaxy"]
 [ext_resource type="Script" path="res://wall.gd" id="2"]
@@ -12,6 +12,8 @@
 [ext_resource type="Script" path="res://circles_of_things.gd" id="10_njqh7"]
 [ext_resource type="PackedScene" uid="uid://dajk1oava0d0c" path="res://dod.tscn" id="11_8cpsu"]
 [ext_resource type="PackedScene" uid="uid://dwek4dvynv3km" path="res://dod_physics.tscn" id="12_yglxe"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_tfhgs"]
 
 [sub_resource type="WorldBoundaryShape3D" id="18"]
 
@@ -28,8 +30,8 @@ size = Vector3(0.25, 0.25, 2)
 
 [node name="root" type="Node3D"]
 
-[node name="Player" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.213, 5, 44.1)
+[node name="Player" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.38176, 20.2368)
 script = ExtResource("1_sbaxy")
 speed = 10.0
 
@@ -41,8 +43,13 @@ near = 0.01
 far = 10000.0
 
 [node name="AudioListener3D" type="AudioListener3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.213, 5, 44.1)
 
 [node name="XROrigin3D" type="XROrigin3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.213, 5, 44.1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+shape = SubResource("SphereShape3D_tfhgs")
 
 [node name="SceneSwitcher" parent="." instance=ExtResource("5")]
 
@@ -51,7 +58,7 @@ transform = Transform3D(-0.478572, -0.862125, -0.166461, -0.324868, -0.00227278,
 shadow_enabled = true
 
 [node name="wall" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 28.763)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 13.3011)
 script = ExtResource("2")
 brickScene = ExtResource("4")
 

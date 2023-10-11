@@ -23,7 +23,7 @@ func _ready():
 			var newMaterial = StandardMaterial3D.new()
 			
 			var h = j / numPrefabs
-			newMaterial.albedo_color = Color.from_hsv(h, 1, 1, 0.8)
+			newMaterial.albedo_color = Color.from_hsv(h, 1, 1, h)
 			james.get_node("MeshInstance3D").material_override = newMaterial
 			
 			add_child(james)

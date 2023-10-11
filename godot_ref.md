@@ -18,6 +18,8 @@
 | Shift Ctrl F | Find in files |
 | Shift Ctrl R | Replace in files |
 | Ctrl Shift F11 | Max space for editing |
+| Ctrl + A | Add new node |
+| Ctrl + Shift + A | Instantiate new node |
 
 ## Important Nodes
 

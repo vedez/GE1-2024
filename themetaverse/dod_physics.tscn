@@ -1,4 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://dwek4dvynv3km"]
+[gd_scene load_steps=6 format=3 uid="uid://dwek4dvynv3km"]
+
+[ext_resource type="Material" uid="uid://bl6jsqqj7epyp" path="res://dod_material.tres" id="1_nvvr4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qvprf"]
 resource_name = "phong1"
@@ -46,6 +48,7 @@ points = PackedVector3Array(-0.56346, -0.183189, -0.0949343, -0.359939, -0.11696
 gi_mode = 0
 mesh = SubResource("ArrayMesh_pskff")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("1_nvvr4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("ConvexPolygonShape3D_axst4")
