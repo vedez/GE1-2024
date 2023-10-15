@@ -3,17 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cendyorfi4iwm"
-path.s3tc="res://.godot/imported/vr_glove_color.jpg-218c404c29a2d92f2b7dadd59aec13ef.s3tc.ctex"
-path.etc2="res://.godot/imported/vr_glove_color.jpg-218c404c29a2d92f2b7dadd59aec13ef.etc2.ctex"
+path="res://.godot/imported/icon.svg-05c86a2a87165d339e50dc7800d711dd.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/godot-openxr/assets/valve_hand_models/textures/vr_glove_color.jpg"
-dest_files=["res://.godot/imported/vr_glove_color.jpg-218c404c29a2d92f2b7dadd59aec13ef.s3tc.ctex", "res://.godot/imported/vr_glove_color.jpg-218c404c29a2d92f2b7dadd59aec13ef.etc2.ctex"]
+source_file="res://addons/gdscript_input_field/icon.svg"
+dest_files=["res://.godot/imported/icon.svg-05c86a2a87165d339e50dc7800d711dd.ctex"]
 
 [params]
 
@@ -34,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=0
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

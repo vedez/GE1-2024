@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bm2frc7v54fac"
-path.s3tc="res://.godot/imported/left_hand_file3.png-04fd8a01ba0347e655a3e23328c323e8.s3tc.ctex"
-path.etc2="res://.godot/imported/left_hand_file3.png-04fd8a01ba0347e655a3e23328c323e8.etc2.ctex"
+path.s3tc="res://.godot/imported/triangle.png-53a0c5b2abae92a9e7f23d30d12f32c2.s3tc.ctex"
+path.etc2="res://.godot/imported/triangle.png-53a0c5b2abae92a9e7f23d30d12f32c2.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://addons/godot-openxr/assets/valve_hand_models/left_hand_file3.png"
-dest_files=["res://.godot/imported/left_hand_file3.png-04fd8a01ba0347e655a3e23328c323e8.s3tc.ctex", "res://.godot/imported/left_hand_file3.png-04fd8a01ba0347e655a3e23328c323e8.etc2.ctex"]
+source_file="res://triangle.png"
+dest_files=["res://.godot/imported/triangle.png-53a0c5b2abae92a9e7f23d30d12f32c2.s3tc.ctex", "res://.godot/imported/triangle.png-53a0c5b2abae92a9e7f23d30d12f32c2.etc2.ctex"]
 
 [params]
 
