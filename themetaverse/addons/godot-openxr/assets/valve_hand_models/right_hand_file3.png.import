@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c75sa8ieyl4p7"
 path.s3tc="res://.godot/imported/right_hand_file3.png-0ee1cfb28893177b1877e2dba5e657bc.s3tc.ctex"
+path.etc2="res://.godot/imported/right_hand_file3.png-0ee1cfb28893177b1877e2dba5e657bc.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://addons/godot-openxr/assets/valve_hand_models/right_hand_file3.png"
-dest_files=["res://.godot/imported/right_hand_file3.png-0ee1cfb28893177b1877e2dba5e657bc.s3tc.ctex"]
+dest_files=["res://.godot/imported/right_hand_file3.png-0ee1cfb28893177b1877e2dba5e657bc.s3tc.ctex", "res://.godot/imported/right_hand_file3.png-0ee1cfb28893177b1877e2dba5e657bc.etc2.ctex"]
 
 [params]
 
