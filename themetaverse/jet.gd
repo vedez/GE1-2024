@@ -4,11 +4,18 @@ extends Node3D
 
 @export var power = 100 
 
+@export var trigger = 0 
+
+func _physics_process(delta):
+	if trigger > 0:
+		var force = - global_transform.basis.y * power * trigger
+		DebugDraw.draw_line(global_transform.origin, global_transform.origin + force)
+		player.apply_force(-force, Vector3.ZERO)
+
 func _on_xr_controller_3d_input_float_changed(name, value):
-	print(name + " " + str(value))
-	
-	var t = get_physics_process_delta_time()
-	var force = global_transform.basis.z * power * t
-	
-	player.apply_force(force, Vector3.ZERO)
+	if name == "trigger":
+		trigger =  value
+#	
 	pass # Replace with function body.
+
+

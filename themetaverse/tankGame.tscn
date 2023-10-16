@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bsd26l7esfabd"]
+[gd_scene load_steps=29 format=3 uid="uid://bsd26l7esfabd"]
 
 [ext_resource type="Script" path="res://Start_XR.gd" id="1_8q0sy"]
 [ext_resource type="Script" path="res://FPController.gd" id="1_sbaxy"]
@@ -20,10 +20,6 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_ng4vm"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_jon5c"]
-
-[sub_resource type="Curve" id="Curve_1ri2c"]
-_data = [Vector2(0.0124481, 0.978648), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 2
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_2lwri"]
 
@@ -53,6 +49,9 @@ script = ExtResource("1_8q0sy")
 
 [node name="Player" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.85944, -9.47485)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
 script = ExtResource("1_sbaxy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
@@ -72,17 +71,12 @@ tracker = &"left_hand"
 [node name="jet" type="Node3D" parent="Player/XROrigin3D/XRController3D"]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 script = ExtResource("4_cwxj0")
-power = 10000
+power = 500
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Player/XROrigin3D/XRController3D/jet"]
 mesh = SubResource("CapsuleMesh_jon5c")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("9_oqvfe")
-
-[node name="TrailRenderer" type="Node3D" parent="Player/XROrigin3D/XRController3D/jet"]
-script = ExtResource("4_3h56a")
-width_curve = SubResource("Curve_1ri2c")
-material = ExtResource("5_5qnui")
 
 [node name="XRController3D2" type="XRController3D" parent="Player/XROrigin3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.48393, 0, 0)
