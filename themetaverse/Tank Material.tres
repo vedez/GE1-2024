@@ -1,4 +1,8 @@
-[gd_resource type="StandardMaterial3D" format=3 uid="uid://nhu2r5spu63n"]
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cdwdpanjlp6vo"]
+
+[ext_resource type="Texture2D" uid="uid://cm0joibhgg7br" path="res://addons/kenney_particle_pack/circle_05.png" id="1_resl0"]
 
 [resource]
-albedo_color = Color(0.106231, 0.544172, 0.546489, 1)
+transparency = 1
+albedo_color = Color(0.105882, 0.545098, 0.545098, 0.588235)
+albedo_texture = ExtResource("1_resl0")

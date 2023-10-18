@@ -1,6 +1,6 @@
-[gd_scene load_steps=44 format=3 uid="uid://h0lqkymsxc1x"]
+[gd_scene load_steps=30 format=3 uid="uid://b3cabwbke2d0g"]
 
-[ext_resource type="Script" path="res://Start_XR.gd" id="1_1l1aj"]
+[ext_resource type="Script" path="res://root.gd" id="1_3jv87"]
 [ext_resource type="Script" path="res://FPController.gd" id="2_yily8"]
 [ext_resource type="Environment" path="res://seek_environment..tres" id="3_loph3"]
 [ext_resource type="Script" path="res://jet.gd" id="4_3dkdw"]
@@ -12,11 +12,20 @@
 [ext_resource type="Material" path="res://Ground.tres" id="9_lvxc7"]
 [ext_resource type="Script" path="res://ArmyTank.gd" id="10_w8qfx"]
 [ext_resource type="PackedScene" uid="uid://b4pok7xvls88x" path="res://bullet1.tscn" id="11_pnsl1"]
-[ext_resource type="Script" path="res://AITank.gd" id="12_1wlnp"]
-[ext_resource type="Material" uid="uid://nhu2r5spu63n" path="res://Tank Material.tres" id="12_qfb0c"]
+[ext_resource type="Material" uid="uid://cdwdpanjlp6vo" path="res://Tank Material.tres" id="12_qfb0c"]
 [ext_resource type="Script" path="res://circles_of_things.gd" id="13_5b3ar"]
 [ext_resource type="PackedScene" uid="uid://dajk1oava0d0c" path="res://dod.tscn" id="14_xhdnd"]
-[ext_resource type="PackedScene" path="res://dod_physics.tscn" id="15_ssck7"]
+[ext_resource type="PackedScene" uid="uid://dwek4dvynv3km" path="res://dod_physics.tscn" id="15_ssck7"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_he7iy"]
+direction = Vector3(1, 1, 0)
+spread = 27.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_max = 10.0
+color = Color(1, 1, 0, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_x3p45"]
+material = ExtResource("12_qfb0c")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_tfhgs"]
 
@@ -45,56 +54,22 @@ albedo_color = Color(0.894118, 0, 0, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_w0fv0"]
 size = Vector3(0.25, 0.25, 2)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gugsu"]
-albedo_color = Color(0.764706, 0.329412, 0, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ke77p"]
-albedo_color = Color(0.764706, 0.329412, 0, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nmbka"]
-albedo_color = Color(0.866667, 0.913725, 0, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_es6dx"]
-albedo_color = Color(0.866667, 0.913725, 0, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ucy63"]
-albedo_color = Color(0.270588, 0.6, 0, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vxl28"]
-albedo_color = Color(0.270588, 0.6, 0, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jlk2g"]
-albedo_color = Color(0.0470588, 0.247059, 0, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ygmea"]
-albedo_color = Color(0.0470588, 0.247059, 0, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ci2dc"]
-albedo_color = Color(0.105882, 0, 0.909804, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ylxlf"]
-albedo_color = Color(0.105882, 0, 0.909804, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lpwkr"]
-albedo_color = Color(0.427451, 0.172549, 1, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bb7fb"]
-albedo_color = Color(0.427451, 0.172549, 1, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ty4w6"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tnh1a"]
-albedo_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wjr3l"]
-albedo_color = Color(0, 0, 0, 1)
-
 [node name="root" type="Node3D"]
-script = ExtResource("1_1l1aj")
+script = ExtResource("1_3jv87")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.82308, 9.16357, 0)
+amount = 1000
+lifetime = 20.0
+trail_enabled = true
+trail_lifetime = 3.01
+process_material = SubResource("ParticleProcessMaterial_he7iy")
+draw_pass_1 = SubResource("QuadMesh_x3p45")
 
 [node name="Player" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.85944, -9.47485)
 script = ExtResource("2_yily8")
+speed = 10.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
 shape = SubResource("SphereShape3D_tfhgs")
@@ -130,12 +105,6 @@ tracker = &"right_hand"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Player/XROrigin3D/XRController3D2"]
 
-[node name="Old Player" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.38176, 20.2368)
-visible = false
-script = ExtResource("2_yily8")
-speed = 10.0
-
 [node name="SceneSwitcher" parent="." instance=ExtResource("6_slgkm")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -158,12 +127,11 @@ mesh = SubResource("2")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("9_lvxc7")
 
-[node name="tank" type="CharacterBody3D" parent="." node_paths=PackedStringArray("AITank")]
+[node name="tank" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -0.021)
 motion_mode = 1
 script = ExtResource("10_w8qfx")
 bulletPrefab = ExtResource("11_pnsl1")
-AITank = NodePath("../tank2")
 
 [node name="camTarget" type="Node3D" parent="tank"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25501, -2.55356)
@@ -190,329 +158,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_54pfi")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.679319)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="tank/CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.625, 1)
-shape = SubResource("BoxShape3D_w0fv0")
-
-[node name="tank2" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.5, 3.25)
-motion_mode = 1
-script = ExtResource("12_1wlnp")
-speed = 5.0
-radius = 20.0
-num_waypoints = 12
-
-[node name="camTarget" type="Node3D" parent="tank2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25501, -2.55356)
-
-[node name="tankMesh" type="MeshInstance3D" parent="tank2"]
-mesh = SubResource("1")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_gugsu")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="tank2"]
-shape = SubResource("BoxShape3D_2mivd")
-
-[node name="Timer" type="Timer" parent="tank2"]
-
-[node name="CharacterBody3D" type="CharacterBody3D" parent="tank2"]
-
-[node name="Turret" type="MeshInstance3D" parent="tank2/CharacterBody3D"]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 2, 0, 0.625, 1)
-mesh = SubResource("6")
-skeleton = NodePath("../../tankMesh")
-surface_material_override/0 = SubResource("StandardMaterial3D_ke77p")
-
-[node name="bulletSpawn" type="Node3D" parent="tank2/CharacterBody3D/Turret"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.679319)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="tank2/CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.625, 1)
-shape = SubResource("BoxShape3D_w0fv0")
-
-[node name="tank3" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.5, 3.25)
-motion_mode = 1
-script = ExtResource("12_1wlnp")
-speed = 5.0
-radius = 20.0
-num_waypoints = 12
-
-[node name="camTarget" type="Node3D" parent="tank3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25501, -2.55356)
-
-[node name="tankMesh" type="MeshInstance3D" parent="tank3"]
-mesh = SubResource("1")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_nmbka")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="tank3"]
-shape = SubResource("BoxShape3D_2mivd")
-
-[node name="Timer" type="Timer" parent="tank3"]
-
-[node name="CharacterBody3D" type="CharacterBody3D" parent="tank3"]
-
-[node name="Turret" type="MeshInstance3D" parent="tank3/CharacterBody3D"]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 2, 0, 0.625, 1)
-mesh = SubResource("6")
-skeleton = NodePath("../../tankMesh")
-surface_material_override/0 = SubResource("StandardMaterial3D_es6dx")
-
-[node name="bulletSpawn" type="Node3D" parent="tank3/CharacterBody3D/Turret"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.679319)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="tank3/CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.625, 1)
-shape = SubResource("BoxShape3D_w0fv0")
-
-[node name="tank4" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.5, 3.25)
-motion_mode = 1
-script = ExtResource("12_1wlnp")
-speed = 5.0
-radius = 20.0
-num_waypoints = 12
-
-[node name="camTarget" type="Node3D" parent="tank4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25501, -2.55356)
-
-[node name="tankMesh" type="MeshInstance3D" parent="tank4"]
-mesh = SubResource("1")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_ucy63")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="tank4"]
-shape = SubResource("BoxShape3D_2mivd")
-
-[node name="Timer" type="Timer" parent="tank4"]
-
-[node name="CharacterBody3D" type="CharacterBody3D" parent="tank4"]
-
-[node name="Turret" type="MeshInstance3D" parent="tank4/CharacterBody3D"]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 2, 0, 0.625, 1)
-mesh = SubResource("6")
-skeleton = NodePath("../../tankMesh")
-surface_material_override/0 = SubResource("StandardMaterial3D_vxl28")
-
-[node name="bulletSpawn" type="Node3D" parent="tank4/CharacterBody3D/Turret"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.679319)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="tank4/CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.625, 1)
-shape = SubResource("BoxShape3D_w0fv0")
-
-[node name="tank5" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0.5, 3.25)
-motion_mode = 1
-script = ExtResource("12_1wlnp")
-speed = 5.0
-radius = 20.0
-num_waypoints = 12
-
-[node name="camTarget" type="Node3D" parent="tank5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25501, -2.55356)
-
-[node name="tankMesh" type="MeshInstance3D" parent="tank5"]
-mesh = SubResource("1")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_jlk2g")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="tank5"]
-shape = SubResource("BoxShape3D_2mivd")
-
-[node name="Timer" type="Timer" parent="tank5"]
-
-[node name="CharacterBody3D" type="CharacterBody3D" parent="tank5"]
-
-[node name="Turret" type="MeshInstance3D" parent="tank5/CharacterBody3D"]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 2, 0, 0.625, 1)
-mesh = SubResource("6")
-skeleton = NodePath("../../tankMesh")
-surface_material_override/0 = SubResource("StandardMaterial3D_ygmea")
-
-[node name="bulletSpawn" type="Node3D" parent="tank5/CharacterBody3D/Turret"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.679319)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="tank5/CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.625, 1)
-shape = SubResource("BoxShape3D_w0fv0")
-
-[node name="tank6" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0.5, 3.25)
-motion_mode = 1
-script = ExtResource("12_1wlnp")
-speed = 5.0
-radius = 20.0
-num_waypoints = 12
-
-[node name="camTarget" type="Node3D" parent="tank6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25501, -2.55356)
-
-[node name="tankMesh" type="MeshInstance3D" parent="tank6"]
-mesh = SubResource("1")
-skeleton = NodePath("../..")
-surface_material_override/0 = ExtResource("12_qfb0c")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="tank6"]
-shape = SubResource("BoxShape3D_2mivd")
-
-[node name="Timer" type="Timer" parent="tank6"]
-
-[node name="CharacterBody3D" type="CharacterBody3D" parent="tank6"]
-
-[node name="Turret" type="MeshInstance3D" parent="tank6/CharacterBody3D"]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 2, 0, 0.625, 1)
-mesh = SubResource("6")
-skeleton = NodePath("../../tankMesh")
-surface_material_override/0 = ExtResource("12_qfb0c")
-
-[node name="bulletSpawn" type="Node3D" parent="tank6/CharacterBody3D/Turret"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.679319)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="tank6/CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.625, 1)
-shape = SubResource("BoxShape3D_w0fv0")
-
-[node name="tank7" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0.5, 3.25)
-motion_mode = 1
-script = ExtResource("12_1wlnp")
-speed = 5.0
-radius = 20.0
-num_waypoints = 12
-
-[node name="camTarget" type="Node3D" parent="tank7"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25501, -2.55356)
-
-[node name="tankMesh" type="MeshInstance3D" parent="tank7"]
-mesh = SubResource("1")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_ci2dc")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="tank7"]
-shape = SubResource("BoxShape3D_2mivd")
-
-[node name="Timer" type="Timer" parent="tank7"]
-
-[node name="CharacterBody3D" type="CharacterBody3D" parent="tank7"]
-
-[node name="Turret" type="MeshInstance3D" parent="tank7/CharacterBody3D"]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 2, 0, 0.625, 1)
-mesh = SubResource("6")
-skeleton = NodePath("../../tankMesh")
-surface_material_override/0 = SubResource("StandardMaterial3D_ylxlf")
-
-[node name="bulletSpawn" type="Node3D" parent="tank7/CharacterBody3D/Turret"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.679319)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="tank7/CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.625, 1)
-shape = SubResource("BoxShape3D_w0fv0")
-
-[node name="tank8" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0.5, 3.25)
-motion_mode = 1
-script = ExtResource("12_1wlnp")
-speed = 5.0
-radius = 20.0
-num_waypoints = 12
-
-[node name="camTarget" type="Node3D" parent="tank8"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25501, -2.55356)
-
-[node name="tankMesh" type="MeshInstance3D" parent="tank8"]
-mesh = SubResource("1")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_lpwkr")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="tank8"]
-shape = SubResource("BoxShape3D_2mivd")
-
-[node name="Timer" type="Timer" parent="tank8"]
-
-[node name="CharacterBody3D" type="CharacterBody3D" parent="tank8"]
-
-[node name="Turret" type="MeshInstance3D" parent="tank8/CharacterBody3D"]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 2, 0, 0.625, 1)
-mesh = SubResource("6")
-skeleton = NodePath("../../tankMesh")
-surface_material_override/0 = SubResource("StandardMaterial3D_bb7fb")
-
-[node name="bulletSpawn" type="Node3D" parent="tank8/CharacterBody3D/Turret"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.679319)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="tank8/CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.625, 1)
-shape = SubResource("BoxShape3D_w0fv0")
-
-[node name="tank9" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0.5, 3.25)
-motion_mode = 1
-script = ExtResource("12_1wlnp")
-speed = 5.0
-radius = 20.0
-num_waypoints = 12
-
-[node name="camTarget" type="Node3D" parent="tank9"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25501, -2.55356)
-
-[node name="tankMesh" type="MeshInstance3D" parent="tank9"]
-mesh = SubResource("1")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_ty4w6")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="tank9"]
-shape = SubResource("BoxShape3D_2mivd")
-
-[node name="Timer" type="Timer" parent="tank9"]
-
-[node name="CharacterBody3D" type="CharacterBody3D" parent="tank9"]
-
-[node name="Turret" type="MeshInstance3D" parent="tank9/CharacterBody3D"]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 2, 0, 0.625, 1)
-mesh = SubResource("6")
-skeleton = NodePath("../../tankMesh")
-
-[node name="bulletSpawn" type="Node3D" parent="tank9/CharacterBody3D/Turret"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.679319)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="tank9/CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.625, 1)
-shape = SubResource("BoxShape3D_w0fv0")
-
-[node name="tank10" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0.5, 3.25)
-motion_mode = 1
-script = ExtResource("12_1wlnp")
-speed = 5.0
-radius = 20.0
-num_waypoints = 12
-
-[node name="camTarget" type="Node3D" parent="tank10"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25501, -2.55356)
-
-[node name="tankMesh" type="MeshInstance3D" parent="tank10"]
-mesh = SubResource("1")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_tnh1a")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="tank10"]
-shape = SubResource("BoxShape3D_2mivd")
-
-[node name="Timer" type="Timer" parent="tank10"]
-
-[node name="CharacterBody3D" type="CharacterBody3D" parent="tank10"]
-
-[node name="Turret" type="MeshInstance3D" parent="tank10/CharacterBody3D"]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 2, 0, 0.625, 1)
-mesh = SubResource("6")
-skeleton = NodePath("../../tankMesh")
-surface_material_override/0 = SubResource("StandardMaterial3D_wjr3l")
-
-[node name="bulletSpawn" type="Node3D" parent="tank10/CharacterBody3D/Turret"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.679319)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="tank10/CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.625, 1)
 shape = SubResource("BoxShape3D_w0fv0")
 

@@ -33,6 +33,7 @@
 | StaticBody3D | World rigid body |
 | CollisionShape3D | Requred to respond to collisions. Set the Shape property |
 | MeshInstance3D | 3D mesh renderer |
+| RigidBody3D | Rigid body |
 | CharacterBody3D | Kinematic rigid body |
 | Timer | Node that send signals on an interval |
 | Camera3D | |
@@ -40,10 +41,12 @@
 
 ## Transforms
 
+| To do | Use |
 | Movement | translate, move_and_slide, move_and_collide | 
 | Setting the position | position =, transform.origin =, global_transform.origin = 
 | Rotating | rotate, rotate_x, rotate_y, rotate_z |
 | Setting the rotation | rotation = Vector3(x, y, z). This is in radians. transform.basis = transform.basis.rotated(), global_transform.basis = global_transform.basis.rotated(), or Basis (from) - where from is a quaternion | 
+| Setting the scale | scale, transform.basis.scale, global_transform.basis.scale n| 
 
 ## Referencing other nodes
 
