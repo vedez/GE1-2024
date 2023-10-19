@@ -31,7 +31,7 @@
 | XRCamera3D | Tracked Camera in VR |
 | DirectionalLight | |
 | StaticBody3D | World rigid body |
-| CollisionShape3D | Requred to respond to collisions. Set the Shape property |
+| CollisionShape3D | Required to respond to collisions. Set the Shape property |
 | MeshInstance3D | 3D mesh renderer |
 | RigidBody3D | Rigid body |
 | CharacterBody3D | Kinematic rigid body |

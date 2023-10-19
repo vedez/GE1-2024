@@ -56,17 +56,17 @@ var xr_interface: XRInterface
 
 func _ready():
 	pass
-#	xr_interface = XRServer.find_interface("OpenXR")
-#	if xr_interface and xr_interface.is_initialized():
-#		print("OpenXR initialised successfully")
-#
-#		# Turn off v-sync!
-#		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
-#
-#		# Change our main viewport to output to the HMD
-#		get_viewport().use_xr = true
-#	else:
-#		print("OpenXR not initialized, please check if your headset is connected")
+	xr_interface = XRServer.find_interface("OpenXR")
+	if xr_interface and xr_interface.is_initialized():
+		print("OpenXR initialised successfully")
+
+		# Turn off v-sync!
+		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
+
+		# Change our main viewport to output to the HMD
+		get_viewport().use_xr = true
+	else:
+		print("OpenXR not initialized, please check if your headset is connected")
 
 	# get_window().set_current_screen(1)
 
