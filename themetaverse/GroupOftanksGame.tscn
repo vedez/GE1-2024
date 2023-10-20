@@ -13,7 +13,7 @@
 [ext_resource type="Material" uid="uid://nhu2r5spu63n" path="res://Tank Material.tres" id="12_qfb0c"]
 [ext_resource type="Script" path="res://circles_of_things.gd" id="13_5b3ar"]
 [ext_resource type="PackedScene" uid="uid://dajk1oava0d0c" path="res://dod.tscn" id="14_xhdnd"]
-[ext_resource type="PackedScene" path="res://dod_physics.tscn" id="15_ssck7"]
+[ext_resource type="PackedScene" uid="uid://dwek4dvynv3km" path="res://dod_physics.tscn" id="15_ssck7"]
 
 [sub_resource type="Curve" id="Curve_fswxp"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.986486, 0.0106761), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]

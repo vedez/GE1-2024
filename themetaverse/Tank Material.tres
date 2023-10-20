@@ -1,8 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://nhu2r5spu63n"]
-
-[ext_resource type="Texture2D" uid="uid://blfwwaqexa0vb" path="res://addons/kenney_particle_pack/smoke_01.png" id="1_idsxg"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://nhu2r5spu63n"]
 
 [resource]
-transparency = 1
-albedo_color = Color(0.105882, 0.545098, 0.545098, 0.588235)
-albedo_texture = ExtResource("1_idsxg")
+albedo_color = Color(0.105882, 0.545098, 0.545098, 1)
