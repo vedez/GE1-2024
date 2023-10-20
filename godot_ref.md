@@ -1,6 +1,6 @@
 # Unity - Godot API Quick Reference
 
-## Godot Keyboard Shortcuts I Know And Love
+## Godot Keyboard Shortcuts
 
 | Key | Use |
 |-----|-----|
@@ -42,6 +42,7 @@
 ## Transforms
 
 | To do | Use |
+|-------|-----|
 | Movement | translate, move_and_slide, move_and_collide | 
 | Setting the position | position =, transform.origin =, global_transform.origin = 
 | Rotating | rotate, rotate_x, rotate_y, rotate_z |
