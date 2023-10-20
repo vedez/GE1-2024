@@ -67,6 +67,10 @@ move_down={
 "events": []
 }
 
+[physics]
+
+3d/default_gravity=0.0
+
 [rendering]
 
 renderer/rendering_method="mobile"
