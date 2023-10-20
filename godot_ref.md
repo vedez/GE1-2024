@@ -1,6 +1,6 @@
-# Unity - Godot API Quick Reference
+# Godot Quick Reference
 
-## Godot Keyboard Shortcuts
+## Keyboard Shortcuts
 
 | Key | Use |
 |-----|-----|
@@ -22,7 +22,7 @@
 | Ctrl + Shift + A | Instantiate new node |
 | F | Focus on the selected node in the 3D scene view|
 
-## Important Nodes
+## Useful Nodes
 
 | Node | Purpose |
 | -----| --------|
@@ -102,7 +102,6 @@ find_child()
 | basis.xform() | Transform a vector | 
 | DebugDraw.draw_sphere(target.global_transform.origin, slowing_radius, Color.aquamarine) | Draw a sphere |
 | DebugDraw.draw_line(boid.global_transform.origin, feeler.hit_target, Color.chartreuse) *or* DebugDraw.draw_arrow_line(feeler.hit_target, feeler.hit_target + feeler.normal, Color.blue, 0.1) | Draw a line |
+| @tool | |
+| @export |
 
-
-@tool
-@export
