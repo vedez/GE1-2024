@@ -1,7 +1,7 @@
 [gd_scene load_steps=35 format=3 uid="uid://h0lqkymsxc1x"]
-
+[gd_scene load_steps=26 format=3 uid="uid://h0lqkymsxc1x"]
 [ext_resource type="Script" path="res://root.gd" id="1_3jv87"]
-[ext_resource type="Texture2D" uid="uid://bph6nmvqh3pws" path="res://addons/kenney_particle_pack/muzzle_04.png" id="2_dwtm0"]
+[ext_resource type="PackedScene" uid="uid://beyg5xrsag28t" path="res://assets/JetGun.glb" id="2_ek2v2"]
 [ext_resource type="Script" path="res://FPController.gd" id="2_yily8"]
 [ext_resource type="Environment" uid="uid://b5dnnkkpxo3qc" path="res://seek_environment..tres" id="3_loph3"]
 [ext_resource type="Script" path="res://jet.gd" id="4_3dkdw"]
@@ -15,29 +15,6 @@
 [ext_resource type="Script" path="res://circles_of_things.gd" id="13_5b3ar"]
 [ext_resource type="PackedScene" uid="uid://dajk1oava0d0c" path="res://dod.tscn" id="14_xhdnd"]
 [ext_resource type="PackedScene" uid="uid://dwek4dvynv3km" path="res://dod_physics.tscn" id="15_ssck7"]
-
-[sub_resource type="Curve" id="Curve_fswxp"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.986486, 0.0106761), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_q1e0q"]
-curve = SubResource("Curve_fswxp")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_he7iy"]
-direction = Vector3(1, 1, 0)
-spread = 27.0
-gravity = Vector3(0, 0, 0)
-initial_velocity_max = 10.0
-scale_curve = SubResource("CurveTexture_q1e0q")
-color = Color(1, 1, 0, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a5xqw"]
-transparency = 1
-albedo_color = Color(1, 0, 0, 1)
-albedo_texture = ExtResource("2_dwtm0")
-
-[sub_resource type="QuadMesh" id="QuadMesh_tacch"]
-material = SubResource("StandardMaterial3D_a5xqw")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_tfhgs"]
 
@@ -74,14 +51,7 @@ albedo_color = Color(1, 1, 0, 1)
 [node name="root" type="Node3D"]
 script = ExtResource("1_3jv87")
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.82308, 9.16357, 0)
-amount = 100
-lifetime = 20.0
-trail_enabled = true
-trail_lifetime = 3.01
-process_material = SubResource("ParticleProcessMaterial_he7iy")
-draw_pass_1 = SubResource("QuadMesh_tacch")
+[node name="JetGun" parent="." instance=ExtResource("2_ek2v2")]
 
 [node name="Player" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.85944, -9.47485)
