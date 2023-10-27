@@ -44,6 +44,13 @@ func _process(delta):
 	else:
 		t = 1	
 	print(t)
+	
+	var dot1 = transform.basis.z.dot(to_target)
+	if dot1 >= 0:
+		DebugDraw.set_text("Target is ", "in front")
+	else:
+		DebugDraw.set_text("Target is ", "behind")
+			
 	# position = position + dir * delta * speed
 	# translate(dir * delta * speed)
 	
