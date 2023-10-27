@@ -13,6 +13,7 @@ config_version=5
 config/name="Themetaverse"
 run/main_scene="res://tankGame.tscn"
 config/features=PackedStringArray("4.1", "Mobile")
+run/max_fps=80
 config/icon="res://icon.svg"
 
 [autoload]
@@ -71,7 +72,6 @@ move_down={
 
 renderer/rendering_method="mobile"
 textures/vram_compression/import_etc2_astc=true
-anti_aliasing/quality/msaa_3d=2
 
 [xr]
 
