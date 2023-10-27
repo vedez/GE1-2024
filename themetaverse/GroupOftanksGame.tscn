@@ -1,6 +1,7 @@
-[gd_scene load_steps=25 format=3 uid="uid://h0lqkymsxc1x"]
+[gd_scene load_steps=26 format=3 uid="uid://h0lqkymsxc1x"]
 
 [ext_resource type="Script" path="res://root.gd" id="1_3jv87"]
+[ext_resource type="PackedScene" uid="uid://beyg5xrsag28t" path="res://assets/JetGun.glb" id="2_ek2v2"]
 [ext_resource type="Script" path="res://FPController.gd" id="2_yily8"]
 [ext_resource type="Environment" path="res://seek_environment..tres" id="3_loph3"]
 [ext_resource type="Script" path="res://jet.gd" id="4_3dkdw"]
@@ -40,6 +41,8 @@ size = Vector3(0.25, 0.25, 2)
 
 [node name="root" type="Node3D"]
 script = ExtResource("1_3jv87")
+
+[node name="JetGun" parent="." instance=ExtResource("2_ek2v2")]
 
 [node name="Player" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.85944, -9.47485)
