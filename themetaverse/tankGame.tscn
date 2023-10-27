@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bsd26l7esfabd"]
+[gd_scene load_steps=23 format=3 uid="uid://bgdpshvm7752w"]
 
 [ext_resource type="Script" path="res://Start_XR.gd" id="1_8q0sy"]
 [ext_resource type="Environment" uid="uid://b5dnnkkpxo3qc" path="res://seek_environment..tres" id="2_jagpw"]
@@ -25,6 +25,35 @@ size = Vector3(0.25, 0.25, 2)
 [sub_resource type="WorldBoundaryShape3D" id="18"]
 
 [sub_resource type="PlaneMesh" id="2"]
+
+[sub_resource type="Curve" id="Curve_dx2x7"]
+max_value = 1.5
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.414474, 1.5), 0.0, 0.0, 0, 0, Vector2(0.986842, 0.489474), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_vwchi"]
+curve = SubResource("Curve_dx2x7")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tfs6p"]
+emission_shape = 1
+emission_sphere_radius = 0.5
+direction = Vector3(0, -1, 0)
+spread = 60.0
+flatness = 1.0
+initial_velocity_min = 2.0
+initial_velocity_max = 2.0
+tangential_accel_min = -20.0
+tangential_accel_max = 10.0
+scale_curve = SubResource("CurveTexture_vwchi")
+color = Color(0.992157, 0, 0.239216, 1)
+hue_variation_max = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uopty"]
+vertex_color_use_as_albedo = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_4tsbe"]
+material = SubResource("StandardMaterial3D_uopty")
+size = Vector3(0.2, 0.2, 0.2)
 
 [node name="root" type="Node3D"]
 script = ExtResource("1_8q0sy")
@@ -145,3 +174,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.679319)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="tank/CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.625, 1)
 shape = SubResource("BoxShape3D_w0fv0")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.50052, 4.70397, 7.73744)
+amount = 10
+speed_scale = 0.5
+process_material = SubResource("ParticleProcessMaterial_tfs6p")
+draw_pass_1 = SubResource("BoxMesh_4tsbe")
