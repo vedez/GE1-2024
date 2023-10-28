@@ -1,9 +1,9 @@
-[gd_scene load_steps=35 format=3 uid="uid://h0lqkymsxc1x"]
-[gd_scene load_steps=26 format=3 uid="uid://h0lqkymsxc1x"]
+[gd_scene load_steps=30 format=3 uid="uid://h0lqkymsxc1x"]
+
 [ext_resource type="Script" path="res://root.gd" id="1_3jv87"]
 [ext_resource type="PackedScene" uid="uid://beyg5xrsag28t" path="res://assets/JetGun.glb" id="2_ek2v2"]
 [ext_resource type="Script" path="res://FPController.gd" id="2_yily8"]
-[ext_resource type="Environment" uid="uid://b5dnnkkpxo3qc" path="res://seek_environment..tres" id="3_loph3"]
+[ext_resource type="Environment" path="res://seek_environment..tres" id="3_loph3"]
 [ext_resource type="Script" path="res://jet.gd" id="4_3dkdw"]
 [ext_resource type="PackedScene" path="res://SceneSwitcher.tscn" id="6_slgkm"]
 [ext_resource type="Script" path="res://wall.gd" id="7_7xqgj"]
@@ -14,7 +14,7 @@
 [ext_resource type="Material" uid="uid://nhu2r5spu63n" path="res://Tank Material.tres" id="12_qfb0c"]
 [ext_resource type="Script" path="res://circles_of_things.gd" id="13_5b3ar"]
 [ext_resource type="PackedScene" uid="uid://dajk1oava0d0c" path="res://dod.tscn" id="14_xhdnd"]
-[ext_resource type="PackedScene" uid="uid://dwek4dvynv3km" path="res://dod_physics.tscn" id="15_ssck7"]
+[ext_resource type="PackedScene" path="res://dod_physics.tscn" id="15_ssck7"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_tfhgs"]
 
@@ -48,10 +48,8 @@ albedo_color = Color(1, 1, 0, 1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_xctx4"]
 
-[node name="root" type="Node3D"]
+[node name="root2" type="Node3D"]
 script = ExtResource("1_3jv87")
-
-[node name="JetGun" parent="." instance=ExtResource("2_ek2v2")]
 
 [node name="Player" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.85944, -9.47485)
@@ -84,6 +82,9 @@ power = 300
 mesh = SubResource("CapsuleMesh_bg0vs")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("12_qfb0c")
+
+[node name="JetGun" parent="Player/XROrigin3D/XRController3D/jet" instance=ExtResource("2_ek2v2")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
 
 [node name="XRController3D2" type="XRController3D" parent="Player/XROrigin3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.48393, 0, 0)

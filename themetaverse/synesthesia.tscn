@@ -1,6 +1,5 @@
-[gd_scene load_steps=5 format=3 uid="uid://cptfklj47qxmj"]
+[gd_scene load_steps=4 format=3 uid="uid://p6lt2hf6gv7k"]
 
-[ext_resource type="AudioStream" uid="uid://3yppb4jt8i3l" path="res://assets/be_true.mp3" id="1_8p3f7"]
 [ext_resource type="Script" path="res://DancingCubes.gd" id="2_qbnvr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_foet2"]
@@ -23,9 +22,7 @@ transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2.1, 0, 0, 0)
 current = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="XROrigin3D/XRCamera3D"]
-stream = ExtResource("1_8p3f7")
 autoplay = true
-bus = &"Music"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2.1, 0, 0, 0)

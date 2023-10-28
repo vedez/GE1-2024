@@ -22,6 +22,9 @@ Join the class on the World Videophone using the following link:
 
 - [Discord](https://discord.gg/vQEgsb4E)
 
+## Week 6 - How does reality work?
+
+
 ## Week 5 - Quaternions & the Metaverse
 - [The Archaic Revival - Read the essay "Virtual Reality and Electronic Highs"](https://archive.org/stream/pdfy-CVSFsGW3fYSFP1wM/McKenna%2C%20Terence%20-%20The%20Archaic%20Revival_djvu.txt)
 - [Slides on quaternions](https://drive.google.com/file/d/11-KFbodaAl9dRSs9ljzdDyTDp1QWWnsZ/view?usp=sharing)
