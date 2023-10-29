@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://h0lqkymsxc1x"]
+[gd_scene load_steps=40 format=3 uid="uid://h0lqkymsxc1x"]
 
 [ext_resource type="Script" path="res://root.gd" id="1_3jv87"]
 [ext_resource type="PackedScene" uid="uid://beyg5xrsag28t" path="res://assets/JetGun.glb" id="2_ek2v2"]
@@ -6,9 +6,11 @@
 [ext_resource type="Environment" path="res://seek_environment..tres" id="3_loph3"]
 [ext_resource type="Script" path="res://jet.gd" id="4_3dkdw"]
 [ext_resource type="PackedScene" path="res://SceneSwitcher.tscn" id="6_slgkm"]
+[ext_resource type="Material" uid="uid://dptlskiewm84d" path="res://controller_material.tres" id="6_vv0hl"]
 [ext_resource type="Script" path="res://wall.gd" id="7_7xqgj"]
+[ext_resource type="Material" uid="uid://dohx2u81lglvd" path="res://jet_material.tres" id="7_m27if"]
 [ext_resource type="PackedScene" uid="uid://bsmshwh5fdw1y" path="res://Box.tscn" id="8_rgfmu"]
-[ext_resource type="Material" path="res://Ground.tres" id="9_lvxc7"]
+[ext_resource type="Material" uid="uid://b7um1scsijui1" path="res://Ground.tres" id="9_lvxc7"]
 [ext_resource type="Script" path="res://ArmyTank.gd" id="10_w8qfx"]
 [ext_resource type="PackedScene" uid="uid://b4pok7xvls88x" path="res://bullet1.tscn" id="11_pnsl1"]
 [ext_resource type="Material" uid="uid://nhu2r5spu63n" path="res://Tank Material.tres" id="12_qfb0c"]
@@ -17,6 +19,42 @@
 [ext_resource type="PackedScene" path="res://dod_physics.tscn" id="15_ssck7"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_tfhgs"]
+
+[sub_resource type="Gradient" id="Gradient_em1vl"]
+offsets = PackedFloat32Array(0, 0.0945946, 0.234234, 0.45045, 0.603604, 0.747748, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.0945946, 0.0945946, 0.0945946, 1, 0.234234, 0.234234, 0.234234, 1, 0.706103, 0.0817081, 0.762796, 1, 0.603604, 0.603604, 0.603604, 1, 0.747748, 0.747748, 0.747748, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_akxxs"]
+gradient = SubResource("Gradient_em1vl")
+
+[sub_resource type="Curve" id="Curve_ofpkv"]
+min_value = -200.0
+max_value = 200.0
+_data = [Vector2(0, -191.579), 0.0, 0.0, 0, 0, Vector2(1, 200), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ogq85"]
+curve = SubResource("Curve_ofpkv")
+
+[sub_resource type="Curve" id="Curve_v6wsm"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.00395256, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_t5edj"]
+curve = SubResource("Curve_v6wsm")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_amrs5"]
+lifetime_randomness = 1.0
+direction = Vector3(0, 10, 0)
+gravity = Vector3(0, 0, 0)
+initial_velocity_max = 10.0
+linear_accel_curve = SubResource("CurveTexture_ogq85")
+scale_curve = SubResource("CurveTexture_t5edj")
+color = Color(0.141176, 1, 1, 1)
+color_ramp = SubResource("GradientTexture1D_akxxs")
+
+[sub_resource type="BoxMesh" id="BoxMesh_sj8i5"]
+size = Vector3(0.1, 0.1, 0.1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_bg0vs"]
 
@@ -48,7 +86,7 @@ albedo_color = Color(1, 1, 0, 1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_xctx4"]
 
-[node name="root2" type="Node3D"]
+[node name="root" type="Node3D"]
 script = ExtResource("1_3jv87")
 
 [node name="Player" type="RigidBody3D" parent="."]
@@ -74,17 +112,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.34876, 0, 0)
 tracker = &"left_hand"
 
 [node name="jet" type="Node3D" parent="Player/XROrigin3D/XRController3D"]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 script = ExtResource("4_3dkdw")
 power = 300
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Player/XROrigin3D/XRController3D/jet"]
-mesh = SubResource("CapsuleMesh_bg0vs")
-skeleton = NodePath("../..")
-surface_material_override/0 = ExtResource("12_qfb0c")
-
 [node name="JetGun" parent="Player/XROrigin3D/XRController3D/jet" instance=ExtResource("2_ek2v2")]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+transform = Transform3D(-4.37114e-09, 0.1, 0, -0.1, -4.37114e-09, 0, 0, 0, 0.1, 0, 0, 0)
+
+[node name="JetGun2" parent="Player/XROrigin3D/XRController3D/jet/JetGun" index="0"]
+surface_material_override/0 = ExtResource("6_vv0hl")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Player/XROrigin3D/XRController3D/jet/JetGun"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.59439, 2.86623, 0)
+material_override = ExtResource("7_m27if")
+amount = 50
+lifetime = 10.0
+process_material = SubResource("ParticleProcessMaterial_amrs5")
+draw_pass_1 = SubResource("BoxMesh_sj8i5")
 
 [node name="XRController3D2" type="XRController3D" parent="Player/XROrigin3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.48393, 0, 0)
@@ -190,3 +233,5 @@ shape = SubResource("SphereShape3D_xctx4")
 
 [connection signal="input_float_changed" from="Player/XROrigin3D/XRController3D" to="Player/XROrigin3D/XRController3D/jet" method="_on_xr_controller_3d_input_float_changed"]
 [connection signal="area_entered" from="Ring_Outer/Ring_Inner/Area3D" to="Player" method="_on_area_3d_area_entered"]
+
+[editable path="Player/XROrigin3D/XRController3D/jet/JetGun"]
