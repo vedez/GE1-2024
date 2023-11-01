@@ -1,9 +1,9 @@
-[gd_scene load_steps=40 format=3 uid="uid://h0lqkymsxc1x"]
+[gd_scene load_steps=39 format=3 uid="uid://h0lqkymsxc1x"]
 
 [ext_resource type="Script" path="res://root.gd" id="1_3jv87"]
 [ext_resource type="PackedScene" uid="uid://beyg5xrsag28t" path="res://assets/JetGun.glb" id="2_ek2v2"]
 [ext_resource type="Script" path="res://FPController.gd" id="2_yily8"]
-[ext_resource type="Environment" path="res://seek_environment..tres" id="3_loph3"]
+[ext_resource type="Environment" uid="uid://cidc5gvr4vwfu" path="res://seek_environment..tres" id="3_loph3"]
 [ext_resource type="Script" path="res://jet.gd" id="4_3dkdw"]
 [ext_resource type="PackedScene" path="res://SceneSwitcher.tscn" id="6_slgkm"]
 [ext_resource type="Material" uid="uid://dptlskiewm84d" path="res://controller_material.tres" id="6_vv0hl"]
@@ -21,40 +21,38 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_tfhgs"]
 
 [sub_resource type="Gradient" id="Gradient_em1vl"]
-offsets = PackedFloat32Array(0, 0.0945946, 0.234234, 0.45045, 0.603604, 0.747748, 1)
-colors = PackedColorArray(0, 0, 0, 1, 0.0945946, 0.0945946, 0.0945946, 1, 0.234234, 0.234234, 0.234234, 1, 0.706103, 0.0817081, 0.762796, 1, 0.603604, 0.603604, 0.603604, 1, 0.747748, 0.747748, 0.747748, 1, 1, 1, 1, 1)
+offsets = PackedFloat32Array(0.0045045, 0.13964, 0.581081)
+colors = PackedColorArray(1, 0.984314, 0, 0, 1, 0.983333, 0, 1, 1, 0, 0, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_akxxs"]
 gradient = SubResource("Gradient_em1vl")
 
-[sub_resource type="Curve" id="Curve_ofpkv"]
-min_value = -200.0
-max_value = 200.0
-_data = [Vector2(0, -191.579), 0.0, 0.0, 0, 0, Vector2(1, 200), 0.0, 0.0, 0, 0]
-point_count = 2
+[sub_resource type="Curve" id="Curve_q60ip"]
+max_value = 5.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.0118577, 0), 0.0, 0.0, 0, 0, Vector2(0.99999, 3.84211), 0.0, 0.0, 0, 0, Vector2(1, 10), 0.0, 0.0, 0, 0]
+point_count = 4
 
-[sub_resource type="CurveTexture" id="CurveTexture_ogq85"]
-curve = SubResource("Curve_ofpkv")
-
-[sub_resource type="Curve" id="Curve_v6wsm"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.00395256, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_t5edj"]
-curve = SubResource("Curve_v6wsm")
+[sub_resource type="CurveTexture" id="CurveTexture_p6i6g"]
+curve = SubResource("Curve_q60ip")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_amrs5"]
-lifetime_randomness = 1.0
-direction = Vector3(0, 10, 0)
+particle_flag_align_y = true
+direction = Vector3(0, -1, 0)
+spread = 20.0
 gravity = Vector3(0, 0, 0)
-initial_velocity_max = 10.0
-linear_accel_curve = SubResource("CurveTexture_ogq85")
-scale_curve = SubResource("CurveTexture_t5edj")
-color = Color(0.141176, 1, 1, 1)
+initial_velocity_min = 0.1
+initial_velocity_max = 0.1
+linear_accel_min = 0.1
+linear_accel_max = 0.1
+scale_curve = SubResource("CurveTexture_p6i6g")
+color = Color(0.368627, 0.0352941, 0.176471, 1)
 color_ramp = SubResource("GradientTexture1D_akxxs")
 
-[sub_resource type="BoxMesh" id="BoxMesh_sj8i5"]
-size = Vector3(0.1, 0.1, 0.1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tstn3"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_n4c3r"]
+material = SubResource("StandardMaterial3D_tstn3")
+size = Vector3(0.01, 0.01, 0.01)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_bg0vs"]
 
@@ -121,13 +119,13 @@ transform = Transform3D(-4.37114e-09, 0.1, 0, -0.1, -4.37114e-09, 0, 0, 0, 0.1, 
 [node name="JetGun2" parent="Player/XROrigin3D/XRController3D/jet/JetGun" index="0"]
 surface_material_override/0 = ExtResource("6_vv0hl")
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="Player/XROrigin3D/XRController3D/jet/JetGun"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.59439, 2.86623, 0)
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Player/XROrigin3D/XRController3D/jet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.286623, -0.459439, 0)
 material_override = ExtResource("7_m27if")
-amount = 50
-lifetime = 10.0
+amount = 100
+lifetime = 4.0
 process_material = SubResource("ParticleProcessMaterial_amrs5")
-draw_pass_1 = SubResource("BoxMesh_sj8i5")
+draw_pass_1 = SubResource("BoxMesh_n4c3r")
 
 [node name="XRController3D2" type="XRController3D" parent="Player/XROrigin3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.48393, 0, 0)
