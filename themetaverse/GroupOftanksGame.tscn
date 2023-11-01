@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://h0lqkymsxc1x"]
+[gd_scene load_steps=36 format=3 uid="uid://h0lqkymsxc1x"]
 
 [ext_resource type="Script" path="res://root.gd" id="1_3jv87"]
 [ext_resource type="PackedScene" uid="uid://beyg5xrsag28t" path="res://assets/JetGun.glb" id="2_ek2v2"]
@@ -13,7 +13,6 @@
 [ext_resource type="Material" uid="uid://b7um1scsijui1" path="res://Ground.tres" id="9_lvxc7"]
 [ext_resource type="Script" path="res://ArmyTank.gd" id="10_w8qfx"]
 [ext_resource type="PackedScene" uid="uid://b4pok7xvls88x" path="res://bullet1.tscn" id="11_pnsl1"]
-[ext_resource type="Material" uid="uid://nhu2r5spu63n" path="res://Tank Material.tres" id="12_qfb0c"]
 [ext_resource type="Script" path="res://circles_of_things.gd" id="13_5b3ar"]
 [ext_resource type="PackedScene" uid="uid://dajk1oava0d0c" path="res://dod.tscn" id="14_xhdnd"]
 [ext_resource type="PackedScene" path="res://dod_physics.tscn" id="15_ssck7"]
@@ -57,8 +56,6 @@ color_ramp = SubResource("GradientTexture1D_akxxs")
 [sub_resource type="PrismMesh" id="PrismMesh_y464p"]
 material = ExtResource("7_m27if")
 size = Vector3(0.1, 0.1, 0.1)
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_bg0vs"]
 
 [sub_resource type="WorldBoundaryShape3D" id="18"]
 
@@ -110,23 +107,25 @@ shape = SubResource("SphereShape3D_tfhgs")
 environment = ExtResource("3_loph3")
 
 [node name="XRController3D" type="XRController3D" parent="Player/XROrigin3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.34876, 0, 0)
 tracker = &"left_hand"
 
 [node name="jet" type="Node3D" parent="Player/XROrigin3D/XRController3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.1)
 script = ExtResource("4_3dkdw")
-power = 300
+power = 1
 
 [node name="JetGun" parent="Player/XROrigin3D/XRController3D/jet" instance=ExtResource("2_ek2v2")]
-transform = Transform3D(-4.37114e-09, 0.1, 0, -0.1, -4.37114e-09, 0, 0, 0, 0.1, 0, 0, 0)
+transform = Transform3D(9.55343e-17, -2.18557e-09, -0.05, -0.05, -2.18557e-09, 0, -2.18557e-09, 0.05, -2.18557e-09, 0, 0, 0)
 
 [node name="JetGun2" parent="Player/XROrigin3D/XRController3D/jet/JetGun" index="0"]
+transform = Transform3D(1, 0, -8.47033e-22, 0, 1, 0, -8.47033e-22, 0, 1, -2.75978, -2.98355, 0)
 surface_material_override/0 = ExtResource("6_vv0hl")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="Player/XROrigin3D/XRController3D/jet"]
-transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0.286623, -0.459439, 0)
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, -0.0042727, -0.0899854, -0.00745869)
 material_override = ExtResource("7_m27if")
 amount = 500
+local_coords = true
 process_material = SubResource("ParticleProcessMaterial_amrs5")
 draw_pass_1 = SubResource("PrismMesh_y464p")
 
@@ -135,14 +134,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.48393, 0, 0)
 tracker = &"right_hand"
 
 [node name="jet" type="Node3D" parent="Player/XROrigin3D/XRController3D2"]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.1)
 script = ExtResource("4_3dkdw")
-power = 300
+power = 1
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Player/XROrigin3D/XRController3D2/jet"]
-mesh = SubResource("CapsuleMesh_bg0vs")
-skeleton = NodePath("../..")
-surface_material_override/0 = ExtResource("12_qfb0c")
+[node name="JetGun" parent="Player/XROrigin3D/XRController3D2/jet" instance=ExtResource("2_ek2v2")]
+transform = Transform3D(9.55343e-17, -2.18557e-09, -0.05, -0.05, -2.18557e-09, 0, -2.18557e-09, 0.05, -2.18557e-09, 0, 0, 0)
+
+[node name="JetGun2" parent="Player/XROrigin3D/XRController3D2/jet/JetGun" index="0"]
+transform = Transform3D(1, 0, -8.47033e-22, 0, 1, 0, -8.47033e-22, 0, 1, -2.75978, -2.98355, 0)
+surface_material_override/0 = ExtResource("6_vv0hl")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Player/XROrigin3D/XRController3D2/jet"]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, -0.0042727, -0.0899854, -0.00745869)
+material_override = ExtResource("7_m27if")
+amount = 500
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_amrs5")
+draw_pass_1 = SubResource("PrismMesh_y464p")
 
 [node name="SceneSwitcher" parent="." instance=ExtResource("6_slgkm")]
 
@@ -233,6 +242,8 @@ transform = Transform3D(1, 0, 2.11758e-22, 0, 1, 0, 2.11758e-22, 0, 1, 0, 0, 0)
 shape = SubResource("SphereShape3D_xctx4")
 
 [connection signal="input_float_changed" from="Player/XROrigin3D/XRController3D" to="Player/XROrigin3D/XRController3D/jet" method="_on_xr_controller_3d_input_float_changed"]
+[connection signal="input_float_changed" from="Player/XROrigin3D/XRController3D2" to="Player/XROrigin3D/XRController3D2/jet" method="_on_xr_controller_3d_input_float_changed"]
 [connection signal="area_entered" from="Ring_Outer/Ring_Inner/Area3D" to="Player" method="_on_area_3d_area_entered"]
 
 [editable path="Player/XROrigin3D/XRController3D/jet/JetGun"]
+[editable path="Player/XROrigin3D/XRController3D2/jet/JetGun"]
