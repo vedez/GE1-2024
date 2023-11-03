@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://b4pok7xvls88x" path="res://bullet1.tscn" id="11_pnsl1"]
 [ext_resource type="Script" path="res://circles_of_things.gd" id="13_5b3ar"]
 [ext_resource type="PackedScene" uid="uid://dajk1oava0d0c" path="res://dod.tscn" id="14_xhdnd"]
-[ext_resource type="PackedScene" path="res://dod_physics.tscn" id="15_ssck7"]
+[ext_resource type="PackedScene" uid="uid://dwek4dvynv3km" path="res://dod_physics.tscn" id="15_ssck7"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_tfhgs"]
 
