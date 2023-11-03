@@ -24,7 +24,6 @@ transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2.1, 0, 0, 0)
 current = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="XROrigin3D/XRCamera3D"]
-stream = SubResource("AudioStreamMicrophone_3jxps")
 autoplay = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

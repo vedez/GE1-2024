@@ -14,7 +14,7 @@
 [ext_resource type="Material" uid="uid://nhu2r5spu63n" path="res://Tank Material.tres" id="12_qfb0c"]
 [ext_resource type="Script" path="res://circles_of_things.gd" id="13_5b3ar"]
 [ext_resource type="PackedScene" uid="uid://dajk1oava0d0c" path="res://dod.tscn" id="14_xhdnd"]
-[ext_resource type="PackedScene" uid="uid://dwek4dvynv3km" path="res://dod_physics.tscn" id="15_ssck7"]
+[ext_resource type="PackedScene" path="res://dod_physics.tscn" id="15_ssck7"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_tfhgs"]
 
@@ -39,10 +39,17 @@ albedo_color = Color(0.894118, 0, 0, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_w0fv0"]
 size = Vector3(0.25, 0.25, 2)
 
-[node name="root" type="Node3D"]
-script = ExtResource("1_3jv87")
+[sub_resource type="TorusMesh" id="TorusMesh_wat53"]
 
-[node name="JetGun" parent="." instance=ExtResource("2_ek2v2")]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t4viw"]
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_q1gp3"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_xctx4"]
+
+[node name="root2" type="Node3D"]
+script = ExtResource("1_3jv87")
 
 [node name="Player" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.85944, -9.47485)
@@ -75,6 +82,9 @@ power = 300
 mesh = SubResource("CapsuleMesh_bg0vs")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("12_qfb0c")
+
+[node name="JetGun" parent="Player/XROrigin3D/XRController3D/jet" instance=ExtResource("2_ek2v2")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
 
 [node name="XRController3D2" type="XRController3D" parent="Player/XROrigin3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.48393, 0, 0)
