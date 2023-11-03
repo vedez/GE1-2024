@@ -1,9 +1,9 @@
-[gd_scene load_steps=35 format=3 uid="uid://h0lqkymsxc1x"]
 [gd_scene load_steps=26 format=3 uid="uid://h0lqkymsxc1x"]
+
 [ext_resource type="Script" path="res://root.gd" id="1_3jv87"]
 [ext_resource type="PackedScene" uid="uid://beyg5xrsag28t" path="res://assets/JetGun.glb" id="2_ek2v2"]
 [ext_resource type="Script" path="res://FPController.gd" id="2_yily8"]
-[ext_resource type="Environment" uid="uid://b5dnnkkpxo3qc" path="res://seek_environment..tres" id="3_loph3"]
+[ext_resource type="Environment" path="res://seek_environment..tres" id="3_loph3"]
 [ext_resource type="Script" path="res://jet.gd" id="4_3dkdw"]
 [ext_resource type="PackedScene" path="res://SceneSwitcher.tscn" id="6_slgkm"]
 [ext_resource type="Script" path="res://wall.gd" id="7_7xqgj"]
@@ -38,15 +38,6 @@ albedo_color = Color(0.894118, 0, 0, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_w0fv0"]
 size = Vector3(0.25, 0.25, 2)
-
-[sub_resource type="TorusMesh" id="TorusMesh_wat53"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t4viw"]
-albedo_color = Color(1, 1, 0, 1)
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_q1gp3"]
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_xctx4"]
 
 [node name="root" type="Node3D"]
 script = ExtResource("1_3jv87")
@@ -165,27 +156,4 @@ transform = Transform3D(-0.474119, -0.577538, 0.664575, -0.276459, 0.814281, 0.5
 script = ExtResource("13_5b3ar")
 dod = ExtResource("15_ssck7")
 
-[node name="Ring_Outer" type="Node3D" parent="."]
-transform = Transform3D(5.73206e-15, 1.31134e-07, 3, 3, -1.31134e-07, 0, 1.31134e-07, 3, -1.31134e-07, 0, 1.25571, 3.03466)
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Ring_Outer"]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Ring_Outer/StaticBody3D"]
-transform = Transform3D(1, 0, 2.11758e-22, 0, 1, 0, 2.11758e-22, 0, 1, 0, 0, 0)
-mesh = SubResource("TorusMesh_wat53")
-surface_material_override/0 = SubResource("StandardMaterial3D_t4viw")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ring_Outer/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_q1gp3")
-
-[node name="Ring_Inner" type="Node3D" parent="Ring_Outer"]
-transform = Transform3D(120, 0, 0, 0, 120, 0, 0, 0, 120, 0, 0, 0)
-
-[node name="Area3D" type="Area3D" parent="Ring_Outer/Ring_Inner"]
-transform = Transform3D(1, 0, 2.11758e-22, 0, 1, 0, 2.11758e-22, 0, 1, 0, 0, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ring_Outer/Ring_Inner/Area3D"]
-shape = SubResource("SphereShape3D_xctx4")
-
 [connection signal="input_float_changed" from="Player/XROrigin3D/XRController3D" to="Player/XROrigin3D/XRController3D/jet" method="_on_xr_controller_3d_input_float_changed"]
-[connection signal="area_entered" from="Ring_Outer/Ring_Inner/Area3D" to="Player" method="_on_area_3d_area_entered"]
