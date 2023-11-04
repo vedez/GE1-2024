@@ -220,11 +220,8 @@ script = ExtResource("13_5b3ar")
 dod = ExtResource("15_ssck7")
 
 [connection signal="input_float_changed" from="Player/XROrigin3D/XRController3D" to="Player/XROrigin3D/XRController3D/jet" method="_on_xr_controller_3d_input_float_changed"]
-<<<<<<< HEAD
-=======
 [connection signal="input_float_changed" from="Player/XROrigin3D/XRController3D2" to="Player/XROrigin3D/XRController3D2/jet" method="_on_xr_controller_3d_input_float_changed"]
 [connection signal="area_entered" from="Ring_Outer/Ring_Inner/Area3D" to="Player" method="_on_area_3d_area_entered"]
 
 [editable path="Player/XROrigin3D/XRController3D/jet/JetGun"]
 [editable path="Player/XROrigin3D/XRController3D2/jet/JetGun"]
->>>>>>> 0b2a5dc96ecaa999a8b22ec0b524a3f5a7bbec95
