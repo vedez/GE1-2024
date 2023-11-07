@@ -6,7 +6,7 @@ extends Node3D
 
 @export var power = 100 
 
-@export var trigger = 0 
+@export var trigger = 0
 
 func _physics_process(delta):
 	if trigger > 0:
