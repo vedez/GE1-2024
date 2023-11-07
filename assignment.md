@@ -68,7 +68,7 @@ You will manage your project in a github repo, making documented commits as you 
 You can work solo or on a team of up to three people. 
 
 # Due dates:
-- Week 8 - Proposal & git repo - [Submit proposal here](https://forms.office.com/Pages/ResponsePage.aspx?id=yxdjdkjpX06M7Nq8ji_V2ou3qmFXqEdGlmiD1Myl3gNURFIzWkc4TTdIV0hEMUVYUFAwM1NWQzFZSS4u)
+- Week 8 - Proposal & git repo - [Submit proposal here](https://forms.office.com/Pages/ResponsePage.aspx?id=yxdjdkjpX06M7Nq8ji_V2ou3qmFXqEdGlmiD1Myl3gNURFIzWkc4TTdIV0hEMUVYUFAwM1NWQzFZSS4ugit push)
 - Week 13 - Final submission & in-class, in-person demos
  
  # Weighting
@@ -119,8 +119,8 @@ Examples from previous years:
 
 The [interm submission](https://forms.office.com/Pages/ResponsePage.aspx?id=yxdjdkjpX06M7Nq8ji_V2ou3qmFXqEdGlmiD1Myl3gNUQlhURzM4MzFWSTdDTDlERFdZTkw2UThQTS4u) is ungraded and you will get the full 10% if you include the following:
 
-- A git repo with a Unity project. You can [fork this repo](https://github.com/skooter500/GE1-2022-2023/).
+- A git repo with a Godot project
 - A project scene
-- A readme file following this template
+- A readme file following [this template](assignmentreadme.md)
 - A cool idea documented in the readme file
 - A few sentences about how you plan to implement it 
