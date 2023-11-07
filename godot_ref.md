@@ -60,9 +60,12 @@
 | One shot |  Just fire once and stop|
 | Preprocess | Wind the particle system forward this amount before starting |
 | Explosiveness | Explodes them all out semi randomly |
-| How randomly they emit | How randomly they emit |
-| | |
-| | |
+| Randomness | How randomly they emit |
+
+### Process Material
+
+| Lifetime randomness | |
+| Emission Shape |  |
 | | |
 
 ## Referencing other nodes
