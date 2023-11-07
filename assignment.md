@@ -68,7 +68,7 @@ You will manage your project in a github repo, making documented commits as you 
 You can work solo or on a team of up to three people. 
 
 # Due dates:
-- Week 8 - Proposal & git repo - [Submit proposal here](https://forms.office.com/Pages/ResponsePage.aspx?id=yxdjdkjpX06M7Nq8ji_V2ou3qmFXqEdGlmiD1Myl3gNUQlhURzM4MzFWSTdDTDlERFdZTkw2UThQTS4u)
+- Week 8 - Proposal & git repo - [Submit proposal here](https://forms.office.com/Pages/ResponsePage.aspx?id=yxdjdkjpX06M7Nq8ji_V2ou3qmFXqEdGlmiD1Myl3gNURFIzWkc4TTdIV0hEMUVYUFAwM1NWQzFZSS4u)
 - Week 13 - Final submission & in-class, in-person demos
  
  # Weighting
