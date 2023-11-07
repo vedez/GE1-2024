@@ -18,6 +18,7 @@ The project can be VR, AR, Mixed Reality, 3D with a game controller or keyboard 
 
 Some ideas:
 
+- Recreate the Kevin St Snackery in VR
 - Confession in the Metaverse
 - An immersive artwork
 - A dance/movement experience
