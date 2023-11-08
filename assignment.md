@@ -120,7 +120,7 @@ Examples from previous years:
 
 The interm submission is ungraded and you will get the full 10% if you include the following:
 
-- A git repo with a Godot project
+- A git repo with a Godot (or if you want to use an INFEEEEEERIOR  engine - its ok) project
 - A project scene
 - A readme file following [this template](assignmentreadme.md)
 - A cool idea documented in the readme file
