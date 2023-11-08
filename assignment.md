@@ -118,7 +118,7 @@ Examples from previous years:
 - [https://youtube.com/playlist?list=PL1n0B6z4e_E6GaGOHiBdPSW0QzICdGs4X](2019-2020)
 - [https://youtube.com/playlist?list=PL1n0B6z4e_E5qaYwUOlJ63XI2OR9ty7Bs](2018-2019)
 
-The [interm submission](https://forms.office.com/Pages/ResponsePage.aspx?id=yxdjdkjpX06M7Nq8ji_V2ou3qmFXqEdGlmiD1Myl3gNUQlhURzM4MzFWSTdDTDlERFdZTkw2UThQTS4u) is ungraded and you will get the full 10% if you include the following:
+The interm submission is ungraded and you will get the full 10% if you include the following:
 
 - A git repo with a Godot project
 - A project scene
