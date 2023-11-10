@@ -43,7 +43,10 @@ func _process(delta):
 		# move_and_slide()
 		translate(Vector3.FORWARD * speed * move * delta)
 		# move_and_collide()
-		
+	var upanddown = Input.get_axis("move_up", "move_down")
+	if abs(upanddown) > 0:     
+		global_translate(- global_transform.basis.y * speed * upanddown * delta)
+
 		
 	if can_fire and Input.is_action_pressed("ui_select"):
 		var bullet = bulletPrefab.instantiate()

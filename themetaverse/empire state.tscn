@@ -1,0 +1,66 @@
+[gd_scene load_steps=12 format=3 uid="uid://du23nccd2qjt8"]
+
+[ext_resource type="Script" path="res://Start_XR.gd" id="1_iyyfm"]
+[ext_resource type="Script" path="res://FPController.gd" id="2_7n2ne"]
+[ext_resource type="Script" path="res://coin.gd" id="2_o7h1a"]
+[ext_resource type="Script" path="res://TPController.gd" id="4_h8ycw"]
+[ext_resource type="PackedScene" path="res://SceneSwitcher.tscn" id="5_c2obe"]
+[ext_resource type="Material" uid="uid://b7um1scsijui1" path="res://Ground.tres" id="6_q6cri"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_er8le"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ng4vm"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_o3t5f"]
+
+[sub_resource type="WorldBoundaryShape3D" id="18"]
+
+[sub_resource type="PlaneMesh" id="2"]
+
+[node name="root" type="Node3D"]
+script = ExtResource("1_iyyfm")
+
+[node name="coin" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 381, 0)
+mesh = SubResource("CylinderMesh_er8le")
+script = ExtResource("2_o7h1a")
+
+[node name="Player" type="RigidBody3D" parent="coin"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.1504, -366.403, -0.436281)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+script = ExtResource("2_7n2ne")
+speed = 20.0
+
+[node name="TPController" type="Node" parent="coin/Player"]
+script = ExtResource("4_h8ycw")
+player_path = NodePath("..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="coin/Player"]
+shape = SubResource("SphereShape3D_ng4vm")
+
+[node name="AudioListener3D" type="AudioListener3D" parent="coin/Player"]
+
+[node name="Camera3D" type="Camera3D" parent="coin/Player"]
+
+[node name="empire state" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 381, 0, 0, 0, 10, 0, 190.5, 0)
+mesh = SubResource("BoxMesh_o3t5f")
+skeleton = NodePath("")
+
+[node name="SceneSwitcher" parent="." instance=ExtResource("5_c2obe")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.478572, -0.862125, -0.166461, -0.324868, -0.00227278, 0.945757, -0.815739, 0.506691, -0.278989, 0, 0, 0)
+shadow_enabled = true
+
+[node name="ground" type="StaticBody3D" parent="."]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ground"]
+shape = SubResource("18")
+
+[node name="Ground" type="MeshInstance3D" parent="ground"]
+mesh = SubResource("2")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("6_q6cri")

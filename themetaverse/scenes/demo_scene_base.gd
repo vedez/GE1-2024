@@ -25,3 +25,7 @@ func _on_webxr_primary_changed(webxr_primary: int) -> void:
 					f.input_action = action_name
 				if "rotation_action" in f:
 					f.rotation_action = action_name
+
+
+func _on_area_3d_area_entered(area):
+	pass # Replace with function body.

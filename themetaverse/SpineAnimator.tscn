@@ -5,7 +5,7 @@
 
 [sub_resource type="BoxMesh" id="BoxMesh_3o2sd"]
 
-[node name="root" type="Node3D"]
+[node name="root2" type="Node3D"]
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16.5117, 10.0334, -1.78878)

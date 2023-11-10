@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dwek4dvynv3km"]
 
-[ext_resource type="Material" uid="uid://bl6jsqqj7epyp" path="res://dod_material.tres" id="1_nvvr4"]
+[ext_resource type="Material" uid="uid://ca3ydiingixbm" path="res://dod_material.tres" id="1_nvvr4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qvprf"]
 resource_name = "phong1"

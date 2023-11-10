@@ -23,6 +23,7 @@ Join the class on the World Videophone using the following link:
 - [Discord](https://discord.gg/vQEgsb4E)
 
 ## Week 8 - Assignment proposal - physics
+- [Video of the class](https://tudublin-my.sharepoint.com/:v:/g/personal/bryan_duggan_tudublin_ie/EeERzTFvBh9KlDwSKos52XsBVZ_N1yi3V14w83DX7peiTg?e=6qUGdd&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZyIsInJlZmVycmFsQXBwUGxhdGZvcm0iOiJXZWIiLCJyZWZlcnJhbE1vZGUiOiJ2aWV3In19)
 
 ## Week 7 - Review week
 
