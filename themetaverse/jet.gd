@@ -12,12 +12,14 @@ extends Node3D
 func _ready():
 	pass
 
+var lerped_trigger = 0
+
 func _physics_process(delta):
+	lerped_trigger = lerp(lerped_trigger, trigger, delta)
 	if trigger > 0:
 		if not audio.playing:
-			audio.play()
-		else:
-			pass
+			audio.play()					
+		audio.volume_db = remap(trigger, 0, 1, -80, 80)
 		var force = - global_transform.basis.y * power * trigger
 		player.apply_force(-force, Vector3.ZERO)
 		flames.emitting = true
