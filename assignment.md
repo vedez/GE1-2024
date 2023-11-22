@@ -10,7 +10,7 @@ One-legged old man
 In the virtual world he flies
 A bird with one wing
 
-This haiku poem uses imagery and metaphor to convey the idea of a one-legged old man who is able to transcend his physical limitations in the virtual world of the metaverse. In the Metaverse, anything is possible. We, the Metaversians, understand that we can create anything we can dream or imagine. The aim of this assignment is to create a novel metaverse experience that pushes the boundaries of computer science, culture, art and the human experience. If you ever had a dream of flying, scoring the wining goal, playing in a trad session, flying through space etc. etc. etc. then this project is about creating your dream in the Metaverse and knowing the Godlike power of the Triangle. All hail the Triangle.
+This haiku poem uses imagery and metaphor to convey the idea of a one-legged old man who is able to transcend his physical limitations in the virtual world of the metaverse. In the Metaverse, anything is possible. We are the Metaversians - the Gods, and creators of the Metaverse. We know that we can create anything we can dream or imagine. The aim of this assignment is to create a novel metaverse experience that pushes the boundaries of computer science, culture, art and the human experience. If you ever had a dream of flying, scoring the wining goal, playing in a trad session, flying through space etc. etc. etc. then this project is about creating your dream in the Metaverse and knowing the Godlike power of the Triangle. All hail the Triangle.
 
 ![Img](images/triangle.png)
 
@@ -19,6 +19,7 @@ The project can be VR, AR, Mixed Reality, 3D with a game controller or keyboard 
 Some ideas:
 
 - Recreate the Kevin St. Snackery in VR
+- A virtual reality exorcism
 - Confession in the Metaverse
 - An immersive artwork
 - A dance/movement experience
@@ -65,6 +66,8 @@ Some ideas:
 [![YouTube](http://img.youtube.com/vi/sTq2Im2YUOk/0.jpg)](https://www.youtube.com/watch?v=sTq2Im2YUOk)
 
 You will manage your project in a github repo, making documented commits as you make progress and include a detailed readme.md in your git repo along with your project. Here is [a template](assignmentreadme.md) you can use for your readme. Also you can use this [gitignore file](.gitignore). Here is [a tutorial on using git](gitlab.md) if you need to brush up!
+
+Read [Virtual Reality and Electronic Highs](https://archive.org/stream/pdfy-CVSFsGW3fYSFP1wM/McKenna%2C%20Terence%20-%20The%20Archaic%20Revival_djvu.txt) in Terrence Mckenna's "The Archaic Revival" written in 1990!
 
 You can work solo or on a team of up to three people. 
 
