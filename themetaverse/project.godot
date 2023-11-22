@@ -79,6 +79,10 @@ move_down={
 ]
 }
 
+[physics]
+
+3d/default_gravity=9.8
+
 [rendering]
 
 renderer/rendering_method="mobile"

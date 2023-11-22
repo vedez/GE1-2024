@@ -1,63 +1,22 @@
-[gd_scene load_steps=39 format=3 uid="uid://h0lqkymsxc1x"]
+[gd_scene load_steps=30 format=3 uid="uid://buq71algaro7y"]
 
-[ext_resource type="Script" path="res://root.gd" id="1_3jv87"]
-[ext_resource type="PackedScene" uid="uid://beyg5xrsag28t" path="res://assets/JetGun.glb" id="2_ek2v2"]
-[ext_resource type="Environment" uid="uid://cidc5gvr4vwfu" path="res://seek_environment..tres" id="3_loph3"]
-[ext_resource type="Script" path="res://jet.gd" id="4_3dkdw"]
-[ext_resource type="PackedScene" path="res://SceneSwitcher.tscn" id="6_slgkm"]
-[ext_resource type="Material" uid="uid://dptlskiewm84d" path="res://controller_material.tres" id="6_vv0hl"]
-[ext_resource type="Script" path="res://wall.gd" id="7_7xqgj"]
-[ext_resource type="Material" uid="uid://dohx2u81lglvd" path="res://jet_material.tres" id="7_m27if"]
-[ext_resource type="AudioStream" uid="uid://c0eec4fra2f73" path="res://sounds/jet.wav" id="8_lw631"]
-[ext_resource type="PackedScene" uid="uid://bsmshwh5fdw1y" path="res://Box.tscn" id="8_rgfmu"]
-[ext_resource type="Material" uid="uid://b7um1scsijui1" path="res://Ground.tres" id="9_lvxc7"]
-[ext_resource type="Script" path="res://ArmyTank.gd" id="10_w8qfx"]
-[ext_resource type="PackedScene" uid="uid://b4pok7xvls88x" path="res://bullet1.tscn" id="11_pnsl1"]
-[ext_resource type="Script" path="res://circles_of_things.gd" id="13_5b3ar"]
-[ext_resource type="PackedScene" uid="uid://dajk1oava0d0c" path="res://dod.tscn" id="14_xhdnd"]
-[ext_resource type="Script" path="res://PhysicsTest.gd" id="17_mepti"]
-[ext_resource type="Material" uid="uid://nhu2r5spu63n" path="res://Tank Material.tres" id="18_8e407"]
-[ext_resource type="Script" path="res://Drive.gd" id="18_y8ytg"]
+[ext_resource type="Script" path="res://root.gd" id="1_27hhv"]
+[ext_resource type="Script" path="res://FPController.gd" id="2_l38m0"]
+[ext_resource type="PackedScene" path="res://SceneSwitcher.tscn" id="3_8d3s7"]
+[ext_resource type="Environment" uid="uid://cidc5gvr4vwfu" path="res://seek_environment..tres" id="3_bv22j"]
+[ext_resource type="Script" path="res://wall.gd" id="4_pvw2n"]
+[ext_resource type="PackedScene" uid="uid://bsmshwh5fdw1y" path="res://Box.tscn" id="5_h0yds"]
+[ext_resource type="Material" uid="uid://b7um1scsijui1" path="res://Ground.tres" id="6_wyprv"]
+[ext_resource type="Script" path="res://ArmyTank.gd" id="7_0fv0c"]
+[ext_resource type="PackedScene" uid="uid://b4pok7xvls88x" path="res://bullet1.tscn" id="8_dwddl"]
+[ext_resource type="Script" path="res://circles_of_things.gd" id="9_87vwd"]
+[ext_resource type="PackedScene" uid="uid://dajk1oava0d0c" path="res://dod.tscn" id="10_dc6jv"]
+[ext_resource type="Script" path="res://PhysicsTest.gd" id="11_vwlva"]
+[ext_resource type="Material" uid="uid://dptlskiewm84d" path="res://controller_material.tres" id="12_2j2rd"]
+[ext_resource type="Script" path="res://Drive.gd" id="13_00glf"]
+[ext_resource type="Material" uid="uid://nhu2r5spu63n" path="res://Tank Material.tres" id="14_31xfq"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_tfhgs"]
-
-[sub_resource type="Gradient" id="Gradient_em1vl"]
-offsets = PackedFloat32Array(0.00701754, 0.189189, 0.432432, 1)
-colors = PackedColorArray(1, 0.984314, 0, 0, 1, 0.983333, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_akxxs"]
-gradient = SubResource("Gradient_em1vl")
-use_hdr = true
-
-[sub_resource type="Curve" id="Curve_kip11"]
-_data = [Vector2(0, 0.505263), 0.0, 0.0, 0, 0, Vector2(0.355731, 0.915789), 0.0, 0.0, 0, 0, Vector2(1, 0.0421052), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_3xgau"]
-curve = SubResource("Curve_kip11")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_amrs5"]
-particle_flag_align_y = true
-direction = Vector3(0, 1, 0)
-spread = 10.0
-gravity = Vector3(0, 0, 0)
-initial_velocity_min = 20.0
-initial_velocity_max = 50.0
-angular_velocity_min = 1.0
-angular_velocity_max = 1.0
-linear_accel_min = 1.0
-linear_accel_max = 1.0
-radial_accel_min = 1.0
-radial_accel_max = 1.0
-tangential_accel_min = 1.0
-tangential_accel_max = 5.0
-scale_min = 0.1
-scale_curve = SubResource("CurveTexture_3xgau")
-color_ramp = SubResource("GradientTexture1D_akxxs")
-
-[sub_resource type="PrismMesh" id="PrismMesh_y464p"]
-material = ExtResource("7_m27if")
-size = Vector3(0.1, 0.1, 0.1)
 
 [sub_resource type="WorldBoundaryShape3D" id="18"]
 
@@ -92,80 +51,25 @@ points = PackedVector3Array(-0.5, -0.5, -2.35735, 0.571429, 0.571429, 2.53869, 0
 [sub_resource type="CylinderMesh" id="CylinderMesh_fdlj4"]
 
 [node name="root2" type="Node3D"]
-script = ExtResource("1_3jv87")
+script = ExtResource("1_27hhv")
 
 [node name="Player" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.97863, 3.74585, 15.8883)
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
+script = ExtResource("2_l38m0")
+rot_speed = 180.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
 shape = SubResource("SphereShape3D_tfhgs")
 
 [node name="AudioListener3D" type="AudioListener3D" parent="Player"]
 
-[node name="XROrigin3D" type="XROrigin3D" parent="Player"]
+[node name="Camera3D" type="Camera3D" parent="Player"]
+environment = ExtResource("3_bv22j")
 
-[node name="XRCamera3D" type="XRCamera3D" parent="Player/XROrigin3D"]
-environment = ExtResource("3_loph3")
-
-[node name="AudioListener3D" type="AudioListener3D" parent="Player/XROrigin3D/XRCamera3D"]
-
-[node name="XRController3D" type="XRController3D" parent="Player/XROrigin3D"]
-tracker = &"left_hand"
-
-[node name="jet" type="Node3D" parent="Player/XROrigin3D/XRController3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.1)
-script = ExtResource("4_3dkdw")
-power = 1
-
-[node name="JetGun" parent="Player/XROrigin3D/XRController3D/jet" instance=ExtResource("2_ek2v2")]
-transform = Transform3D(9.55343e-17, -2.18557e-09, -0.05, -0.05, -2.18557e-09, 0, -2.18557e-09, 0.05, -2.18557e-09, 0, 0, 0)
-
-[node name="JetGun2" parent="Player/XROrigin3D/XRController3D/jet/JetGun" index="0"]
-transform = Transform3D(1, 0, -8.47033e-22, 0, 1, 0, -8.47033e-22, 0, 1, -2.75978, -2.98355, 0)
-surface_material_override/0 = ExtResource("6_vv0hl")
-
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Player/XROrigin3D/XRController3D/jet"]
-stream = ExtResource("8_lw631")
-autoplay = true
-
-[node name="GPUParticles3D" type="GPUParticles3D" parent="Player/XROrigin3D/XRController3D/jet"]
-transform = Transform3D(0.05, 0, 0, 0, -0.05, -4.37114e-09, 0, 4.37114e-09, -0.05, -0.004, -0.125, -0.007)
-material_override = ExtResource("7_m27if")
-amount = 1
-process_material = SubResource("ParticleProcessMaterial_amrs5")
-draw_pass_1 = SubResource("PrismMesh_y464p")
-
-[node name="XRController3D2" type="XRController3D" parent="Player/XROrigin3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.48393, 0, 0)
-tracker = &"right_hand"
-
-[node name="jet" type="Node3D" parent="Player/XROrigin3D/XRController3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.1)
-script = ExtResource("4_3dkdw")
-power = 1
-
-[node name="JetGun" parent="Player/XROrigin3D/XRController3D2/jet" instance=ExtResource("2_ek2v2")]
-transform = Transform3D(9.55343e-17, -2.18557e-09, -0.05, -0.05, -2.18557e-09, 0, -2.18557e-09, 0.05, -2.18557e-09, 0, 0, 0)
-
-[node name="JetGun2" parent="Player/XROrigin3D/XRController3D2/jet/JetGun" index="0"]
-transform = Transform3D(1, 0, -8.47033e-22, 0, 1, 0, -8.47033e-22, 0, 1, -2.75978, -2.98355, 0)
-surface_material_override/0 = ExtResource("6_vv0hl")
-
-[node name="GPUParticles3D" type="GPUParticles3D" parent="Player/XROrigin3D/XRController3D2/jet"]
-transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, -0.00427294, -0.1252, -0.00745869)
-material_override = ExtResource("7_m27if")
-amount = 1
-process_material = SubResource("ParticleProcessMaterial_amrs5")
-draw_pass_1 = SubResource("PrismMesh_y464p")
-
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Player/XROrigin3D/XRController3D2/jet"]
-stream = ExtResource("8_lw631")
-autoplay = true
-
-[node name="SceneSwitcher" parent="." instance=ExtResource("6_slgkm")]
+[node name="SceneSwitcher" parent="." instance=ExtResource("3_8d3s7")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.478572, -0.862125, -0.166461, -0.324868, -0.00227278, 0.945757, -0.815739, 0.506691, -0.278989, 0, 0, 0)
@@ -174,8 +78,8 @@ shadow_enabled = true
 [node name="wall" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 13.3011)
 visible = false
-script = ExtResource("7_7xqgj")
-brickScene = ExtResource("8_rgfmu")
+script = ExtResource("4_pvw2n")
+brickScene = ExtResource("5_h0yds")
 
 [node name="ground" type="StaticBody3D" parent="."]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 0, 0)
@@ -187,14 +91,14 @@ shape = SubResource("18")
 [node name="Ground" type="MeshInstance3D" parent="ground"]
 mesh = SubResource("2")
 skeleton = NodePath("../..")
-surface_material_override/0 = ExtResource("9_lvxc7")
+surface_material_override/0 = ExtResource("6_wyprv")
 
 [node name="tank" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -0.021)
 motion_mode = 1
-script = ExtResource("10_w8qfx")
+script = ExtResource("7_0fv0c")
 fireRate = 1
-bulletPrefab = ExtResource("11_pnsl1")
+bulletPrefab = ExtResource("8_dwddl")
 
 [node name="camTarget" type="Node3D" parent="tank"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25501, -2.55356)
@@ -226,28 +130,28 @@ shape = SubResource("BoxShape3D_w0fv0")
 
 [node name="genart1" type="Marker3D" parent="."]
 transform = Transform3D(0.946913, 0.321489, -1.49012e-08, -0.276459, 0.814281, 0.510408, 0.164091, -0.483312, 0.859932, 14.1512, 12.7131, 9.49768)
-script = ExtResource("13_5b3ar")
-dod = ExtResource("14_xhdnd")
+script = ExtResource("9_87vwd")
+dod = ExtResource("10_dc6jv")
 
 [node name="world" type="Node3D" parent="."]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="world"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-size = Vector3(72.1229, 1, 57.2511)
+size = Vector3(1000, 1, 1000)
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="world"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.60454, 3.15371, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.4147, 9.57493, 0)
 radius = 1.826
 height = 6.699
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.1958, 0, 4.51345)
-script = ExtResource("17_mepti")
+script = ExtResource("11_vwlva")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.38413, 0)
 mesh = SubResource("TorusMesh_r2fsx")
-surface_material_override/0 = ExtResource("6_vv0hl")
+surface_material_override/0 = ExtResource("12_2j2rd")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="RigidBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.38413, 0)
@@ -256,12 +160,12 @@ shape = SubResource("ConvexPolygonShape3D_0aawl")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
 
 [node name="VehicleBody3D" type="VehicleBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.65288, 0, 0)
-script = ExtResource("18_y8ytg")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.0064, 1.63078, 0)
+script = ExtResource("13_00glf")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="VehicleBody3D"]
 mesh = SubResource("BoxMesh_eqo7f")
-surface_material_override/0 = ExtResource("18_8e407")
+surface_material_override/0 = ExtResource("14_31xfq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="VehicleBody3D"]
 shape = SubResource("ConvexPolygonShape3D_hb05h")
@@ -273,7 +177,7 @@ use_as_traction = true
 [node name="MeshInstance3D" type="MeshInstance3D" parent="VehicleBody3D/VehicleWheel3D"]
 transform = Transform3D(-4.37114e-08, -0.1, 0, 1, -4.37114e-09, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("CylinderMesh_fdlj4")
-surface_material_override/0 = ExtResource("18_8e407")
+surface_material_override/0 = ExtResource("14_31xfq")
 
 [node name="VehicleWheel3D2" type="VehicleWheel3D" parent="VehicleBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1)
@@ -282,7 +186,7 @@ use_as_traction = true
 [node name="MeshInstance3D" type="MeshInstance3D" parent="VehicleBody3D/VehicleWheel3D2"]
 transform = Transform3D(-4.37114e-08, -0.1, 0, 1, -4.37114e-09, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("CylinderMesh_fdlj4")
-surface_material_override/0 = ExtResource("18_8e407")
+surface_material_override/0 = ExtResource("14_31xfq")
 
 [node name="VehicleWheel3D3" type="VehicleWheel3D" parent="VehicleBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1.17566)
@@ -290,7 +194,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1.17566)
 [node name="MeshInstance3D" type="MeshInstance3D" parent="VehicleBody3D/VehicleWheel3D3"]
 transform = Transform3D(-4.37114e-08, -0.1, 0, 1, -4.37114e-09, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("CylinderMesh_fdlj4")
-surface_material_override/0 = ExtResource("18_8e407")
+surface_material_override/0 = ExtResource("14_31xfq")
 
 [node name="VehicleWheel3D4" type="VehicleWheel3D" parent="VehicleBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1.17566)
@@ -298,10 +202,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1.17566)
 [node name="MeshInstance3D" type="MeshInstance3D" parent="VehicleBody3D/VehicleWheel3D4"]
 transform = Transform3D(-4.37114e-08, -0.1, 0, 1, -4.37114e-09, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("CylinderMesh_fdlj4")
-surface_material_override/0 = ExtResource("18_8e407")
-
-[connection signal="input_float_changed" from="Player/XROrigin3D/XRController3D" to="Player/XROrigin3D/XRController3D/jet" method="_on_xr_controller_3d_input_float_changed"]
-[connection signal="input_float_changed" from="Player/XROrigin3D/XRController3D2" to="Player/XROrigin3D/XRController3D2/jet" method="_on_xr_controller_3d_input_float_changed"]
-
-[editable path="Player/XROrigin3D/XRController3D/jet/JetGun"]
-[editable path="Player/XROrigin3D/XRController3D2/jet/JetGun"]
+surface_material_override/0 = ExtResource("14_31xfq")

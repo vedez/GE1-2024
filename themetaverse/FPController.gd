@@ -5,16 +5,16 @@ extends Node3D
 # var a = 2
 # var b = "text"
 
-@export var sensitivity = 0.1
 @export var score = 0
 @export var speed:float = 10
-
+@export var rot_speed =0.5
 var controlling = true
+
+var relative:Vector2 = Vector2.ZERO
 
 func _input(event):
 	if event is InputEventMouseMotion and controlling:
-		rotate(Vector3.DOWN, deg_to_rad(event.relative.x * sensitivity))
-		rotate(transform.basis.x,deg_to_rad(- event.relative.y * sensitivity))
+		relative = event.relative
 	if event.is_action_pressed("ui_cancel"):
 		if controlling:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -33,6 +33,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	rotate(Vector3.DOWN, deg_to_rad(relative.x * deg_to_rad(rot_speed) * delta))
+	rotate(transform.basis.x,deg_to_rad(- relative.y * deg_to_rad(rot_speed) * delta))
+	relative = Vector2.ZERO
 	if can_move:
 		var v = Vector3.ZERO
 		
