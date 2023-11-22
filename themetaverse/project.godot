@@ -32,6 +32,10 @@ project/assembly_name="Themetaverse"
 
 enabled=PackedStringArray()
 
+[filesystem]
+
+import/fbx/enabled=false
+
 [input]
 
 move_for={

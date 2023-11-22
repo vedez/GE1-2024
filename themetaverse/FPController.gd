@@ -7,7 +7,7 @@ extends Node3D
 
 @export var sensitivity = 0.1
 @export var score = 0
-@export var speed:float = 1.0
+@export var speed:float = 10
 
 var controlling = true
 

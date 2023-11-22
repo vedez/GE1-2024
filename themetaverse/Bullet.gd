@@ -13,13 +13,6 @@ var noise:FastNoiseLite = FastNoiseLite.new()
 func _ready():
 	noise.seed = randi()
 	noise.set_noise_type(FastNoiseLite.TYPE_PERLIN)
-	noise.set_frequency(0.01)
-	noise.set_fractal_lacunarity(2)
-	noise.set_fractal_gain(0.5)
-
-	# noise.
-	# noise.period = 20.0
-	# noise.persistence = 0.8
 	
 	get_node("AudioStreamPlayer3D").pitch_scale = randf_range(0.5, 1.0)
 
@@ -30,23 +23,31 @@ var t = 0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	var forward = Vector3.BACK
-	
+	# Local space forward
+	var forward = Vector3.BACK	
 	var v  = speed * forward * delta		
 	
+	# Transform to world space by multiplying by
+	var q = global_transform.basis.get_rotation_quaternion() 
+	v = q * v
+	
+	# This will also work, but it can also scale as the 3 x 3 matrix contains scale
+	#v = global_transform.basis * v	 
+	
 	# Add a noise 
-	var n = Vector3(noise.get_noise_1d(t), noise.get_noise_1d(t + 100),  1)
-	n = global_transform.basis * n
-	DebugDraw.draw_arrow_line(global_position, global_position + (n * 50), Color.RED, 0.1)
+	var n = Vector3(noise.get_noise_1d(t), noise.get_noise_1d(t + 100),  0)
+	n = q * n
+	DebugDraw.draw_arrow_line(global_position, global_position + (n * 5), Color.RED, 0.1)
+	DebugDraw.draw_arrow_line(global_position, global_position + (global_transform.basis.z), Color.BLUE, 0.1)
 	# I think this should return true when a collision happens, but it doesnt
-	v += (n * delta)
+	# v += (n * delta)
 	# var collision = move_and_collide(v)	
 	# 
-	global_position += v
+	global_position += (v + n * 0.1)
 	#translate(v)
 	# look_at(global_transform.origin - v, global_transform.basis.y)
 	t += delta * 10
 
 func _on_Timer_timeout():
-	destroy()
+	# destroy()
 	pass # Replace with function body.
