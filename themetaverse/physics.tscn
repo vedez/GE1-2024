@@ -1,0 +1,239 @@
+[gd_scene load_steps=33 format=3 uid="uid://b1ag37v3ssgen"]
+
+[ext_resource type="Script" path="res://root.gd" id="1_f4kcm"]
+[ext_resource type="Script" path="res://FPController.gd" id="2_k22ky"]
+[ext_resource type="Environment" uid="uid://cidc5gvr4vwfu" path="res://seek_environment..tres" id="3_e06k8"]
+[ext_resource type="Script" path="res://jet.gd" id="4_kmgvr"]
+[ext_resource type="PackedScene" uid="uid://beyg5xrsag28t" path="res://assets/JetGun.glb" id="5_v21um"]
+[ext_resource type="Material" uid="uid://dptlskiewm84d" path="res://controller_material.tres" id="6_p3fbj"]
+[ext_resource type="Material" uid="uid://dohx2u81lglvd" path="res://jet_material.tres" id="7_8g6ag"]
+[ext_resource type="AudioStream" uid="uid://c0eec4fra2f73" path="res://sounds/jet.wav" id="8_luyb7"]
+[ext_resource type="PackedScene" path="res://SceneSwitcher.tscn" id="9_0q60l"]
+[ext_resource type="Script" path="res://wall.gd" id="10_rqdh4"]
+[ext_resource type="PackedScene" uid="uid://bsmshwh5fdw1y" path="res://Box.tscn" id="11_hqyhq"]
+[ext_resource type="Material" uid="uid://b7um1scsijui1" path="res://Ground.tres" id="12_fojco"]
+[ext_resource type="Script" path="res://ArmyTank.gd" id="13_ym8ns"]
+[ext_resource type="PackedScene" uid="uid://b4pok7xvls88x" path="res://bullet1.tscn" id="14_dh2op"]
+[ext_resource type="Script" path="res://circles_of_things.gd" id="15_32pyt"]
+[ext_resource type="PackedScene" uid="uid://dajk1oava0d0c" path="res://dod.tscn" id="16_57gw7"]
+[ext_resource type="AudioStream" uid="uid://cb58ovg6yepox" path="res://sounds/commencing docking.mp3" id="17_q0eif"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_tfhgs"]
+
+[sub_resource type="Gradient" id="Gradient_em1vl"]
+offsets = PackedFloat32Array(0.0045045, 0.189189, 0.432432, 1)
+colors = PackedColorArray(1, 0.984314, 0, 0, 1, 0.983333, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_akxxs"]
+gradient = SubResource("Gradient_em1vl")
+use_hdr = true
+
+[sub_resource type="Curve" id="Curve_kip11"]
+_data = [Vector2(0, 0.505263), 0.0, 0.0, 0, 0, Vector2(0.355731, 0.915789), 0.0, 0.0, 0, 0, Vector2(1, 0.0421052), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_3xgau"]
+curve = SubResource("Curve_kip11")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_amrs5"]
+particle_flag_align_y = true
+direction = Vector3(0, 1, 0)
+spread = 10.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+angular_velocity_min = 1.0
+angular_velocity_max = 1.0
+linear_accel_min = 1.0
+linear_accel_max = 1.0
+radial_accel_min = 1.0
+radial_accel_max = 1.0
+tangential_accel_min = 0.3
+tangential_accel_max = 0.3
+scale_min = 0.1
+scale_curve = SubResource("CurveTexture_3xgau")
+color_ramp = SubResource("GradientTexture1D_akxxs")
+
+[sub_resource type="PrismMesh" id="PrismMesh_y464p"]
+material = ExtResource("7_8g6ag")
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="WorldBoundaryShape3D" id="18"]
+
+[sub_resource type="PlaneMesh" id="2"]
+
+[sub_resource type="BoxMesh" id="1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q44dy"]
+albedo_color = Color(0.894118, 0, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2mivd"]
+
+[sub_resource type="BoxMesh" id="6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_54pfi"]
+albedo_color = Color(0.894118, 0, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w0fv0"]
+size = Vector3(0.25, 0.25, 2)
+
+[node name="root" type="Node3D"]
+script = ExtResource("1_f4kcm")
+
+[node name="Player" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.3716, 3.74585, 15.8883)
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+script = ExtResource("2_k22ky")
+speed = 10.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+shape = SubResource("SphereShape3D_tfhgs")
+
+[node name="AudioListener3D" type="AudioListener3D" parent="Player"]
+
+[node name="XROrigin3D" type="XROrigin3D" parent="Player"]
+
+[node name="XRCamera3D" type="XRCamera3D" parent="Player/XROrigin3D"]
+environment = ExtResource("3_e06k8")
+
+[node name="AudioListener3D" type="AudioListener3D" parent="Player/XROrigin3D/XRCamera3D"]
+
+[node name="XRController3D" type="XRController3D" parent="Player/XROrigin3D"]
+tracker = &"left_hand"
+
+[node name="jet" type="Node3D" parent="Player/XROrigin3D/XRController3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.1)
+script = ExtResource("4_kmgvr")
+power = 1
+
+[node name="JetGun" parent="Player/XROrigin3D/XRController3D/jet" instance=ExtResource("5_v21um")]
+transform = Transform3D(9.55343e-17, -2.18557e-09, -0.05, -0.05, -2.18557e-09, 0, -2.18557e-09, 0.05, -2.18557e-09, 0, 0, 0)
+
+[node name="JetGun2" parent="Player/XROrigin3D/XRController3D/jet/JetGun" index="0"]
+transform = Transform3D(1, 0, -8.47033e-22, 0, 1, 0, -8.47033e-22, 0, 1, -2.75978, -2.98355, 0)
+surface_material_override/0 = ExtResource("6_p3fbj")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Player/XROrigin3D/XRController3D/jet"]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, -0.0042727, -0.1252, -0.00745869)
+material_override = ExtResource("7_8g6ag")
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_amrs5")
+draw_pass_1 = SubResource("PrismMesh_y464p")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Player/XROrigin3D/XRController3D/jet"]
+stream = ExtResource("8_luyb7")
+autoplay = true
+
+[node name="XRController3D2" type="XRController3D" parent="Player/XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.48393, 0, 0)
+tracker = &"right_hand"
+
+[node name="jet" type="Node3D" parent="Player/XROrigin3D/XRController3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.1)
+script = ExtResource("4_kmgvr")
+power = 1
+
+[node name="JetGun" parent="Player/XROrigin3D/XRController3D2/jet" instance=ExtResource("5_v21um")]
+transform = Transform3D(9.55343e-17, -2.18557e-09, -0.05, -0.05, -2.18557e-09, 0, -2.18557e-09, 0.05, -2.18557e-09, 0, 0, 0)
+
+[node name="JetGun2" parent="Player/XROrigin3D/XRController3D2/jet/JetGun" index="0"]
+transform = Transform3D(1, 0, -8.47033e-22, 0, 1, 0, -8.47033e-22, 0, 1, -2.75978, -2.98355, 0)
+surface_material_override/0 = ExtResource("6_p3fbj")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Player/XROrigin3D/XRController3D2/jet"]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, -0.00427294, -0.1252, -0.00745869)
+material_override = ExtResource("7_8g6ag")
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_amrs5")
+draw_pass_1 = SubResource("PrismMesh_y464p")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Player/XROrigin3D/XRController3D2/jet"]
+stream = ExtResource("8_luyb7")
+autoplay = true
+
+[node name="SceneSwitcher" parent="." instance=ExtResource("9_0q60l")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.478572, -0.862125, -0.166461, -0.324868, -0.00227278, 0.945757, -0.815739, 0.506691, -0.278989, 0, 0, 0)
+shadow_enabled = true
+
+[node name="wall" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 13.3011)
+script = ExtResource("10_rqdh4")
+brickScene = ExtResource("11_hqyhq")
+
+[node name="ground" type="StaticBody3D" parent="."]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 0, 0)
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ground"]
+shape = SubResource("18")
+
+[node name="Ground" type="MeshInstance3D" parent="ground"]
+mesh = SubResource("2")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("12_fojco")
+
+[node name="tank" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -0.021)
+motion_mode = 1
+script = ExtResource("13_ym8ns")
+fireRate = 1
+bulletPrefab = ExtResource("14_dh2op")
+
+[node name="camTarget" type="Node3D" parent="tank"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25501, -2.55356)
+
+[node name="tankMesh" type="MeshInstance3D" parent="tank"]
+mesh = SubResource("1")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_q44dy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="tank"]
+shape = SubResource("BoxShape3D_2mivd")
+
+[node name="Timer" type="Timer" parent="tank"]
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="tank"]
+
+[node name="Turret" type="MeshInstance3D" parent="tank/CharacterBody3D"]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 2, 0, 0.625, 1)
+mesh = SubResource("6")
+skeleton = NodePath("../../tankMesh")
+surface_material_override/0 = SubResource("StandardMaterial3D_54pfi")
+
+[node name="bulletSpawn" type="Node3D" parent="tank/CharacterBody3D/Turret"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.679319)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="tank/CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.625, 1)
+shape = SubResource("BoxShape3D_w0fv0")
+
+[node name="genart1" type="Marker3D" parent="."]
+transform = Transform3D(0.946913, 0.321489, -1.49012e-08, -0.276459, 0.814281, 0.510408, 0.164091, -0.483312, 0.859932, 14.1512, 12.7131, 9.49768)
+script = ExtResource("15_32pyt")
+dod = ExtResource("16_57gw7")
+
+[node name="world" type="Node3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="world"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+size = Vector3(72.1229, 1, 57.2511)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="world"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.60454, 3.15371, 0)
+radius = 1.826
+height = 6.699
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("17_q0eif")
+volume_db = 80.0
+autoplay = true
+
+[connection signal="input_float_changed" from="Player/XROrigin3D/XRController3D" to="Player/XROrigin3D/XRController3D/jet" method="_on_xr_controller_3d_input_float_changed"]
+[connection signal="input_float_changed" from="Player/XROrigin3D/XRController3D2" to="Player/XROrigin3D/XRController3D2/jet" method="_on_xr_controller_3d_input_float_changed"]
+
+[editable path="Player/XROrigin3D/XRController3D/jet/JetGun"]
+[editable path="Player/XROrigin3D/XRController3D2/jet/JetGun"]
