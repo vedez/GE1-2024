@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" path="res://root.gd" id="1_f4kcm"]
 [ext_resource type="Script" path="res://FPController.gd" id="2_k22ky"]
+[ext_resource type="Script" path="res://gravity_gun.gd" id="3_31j4e"]
 [ext_resource type="Environment" uid="uid://cidc5gvr4vwfu" path="res://seek_environment..tres" id="3_e06k8"]
 [ext_resource type="Script" path="res://jet.gd" id="4_kmgvr"]
 [ext_resource type="PackedScene" uid="uid://beyg5xrsag28t" path="res://assets/JetGun.glb" id="5_v21um"]
@@ -16,7 +17,6 @@
 [ext_resource type="PackedScene" uid="uid://b4pok7xvls88x" path="res://bullet1.tscn" id="14_dh2op"]
 [ext_resource type="Script" path="res://circles_of_things.gd" id="15_32pyt"]
 [ext_resource type="PackedScene" uid="uid://dajk1oava0d0c" path="res://dod.tscn" id="16_57gw7"]
-[ext_resource type="AudioStream" uid="uid://cb58ovg6yepox" path="res://sounds/commencing docking.mp3" id="17_q0eif"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_tfhgs"]
 
@@ -58,9 +58,10 @@ color_ramp = SubResource("GradientTexture1D_akxxs")
 material = ExtResource("7_8g6ag")
 size = Vector3(0.1, 0.1, 0.1)
 
-[sub_resource type="WorldBoundaryShape3D" id="18"]
-
 [sub_resource type="PlaneMesh" id="2"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_egpo1"]
+data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
 
 [sub_resource type="BoxMesh" id="1"]
 
@@ -81,12 +82,17 @@ size = Vector3(0.25, 0.25, 2)
 script = ExtResource("1_f4kcm")
 
 [node name="Player" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.3716, 3.74585, 15.8883)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
 script = ExtResource("2_k22ky")
-speed = 10.0
+rot_speed = 360.0
+
+[node name="gravity_gun" type="Node3D" parent="Player"]
+script = ExtResource("3_31j4e")
+maximum_velocity = 30
+camera_path = NodePath("../XROrigin3D/XRCamera3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
 shape = SubResource("SphereShape3D_tfhgs")
@@ -168,13 +174,13 @@ brickScene = ExtResource("11_hqyhq")
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 0, 0)
 visible = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ground"]
-shape = SubResource("18")
-
 [node name="Ground" type="MeshInstance3D" parent="ground"]
 mesh = SubResource("2")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("12_fojco")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ground"]
+shape = SubResource("ConcavePolygonShape3D_egpo1")
 
 [node name="tank" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -0.021)
@@ -226,11 +232,6 @@ size = Vector3(72.1229, 1, 57.2511)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.60454, 3.15371, 0)
 radius = 1.826
 height = 6.699
-
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("17_q0eif")
-volume_db = 80.0
-autoplay = true
 
 [connection signal="input_float_changed" from="Player/XROrigin3D/XRController3D" to="Player/XROrigin3D/XRController3D/jet" method="_on_xr_controller_3d_input_float_changed"]
 [connection signal="input_float_changed" from="Player/XROrigin3D/XRController3D2" to="Player/XROrigin3D/XRController3D2/jet" method="_on_xr_controller_3d_input_float_changed"]

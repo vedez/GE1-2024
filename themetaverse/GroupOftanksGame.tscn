@@ -253,8 +253,6 @@ surface_material_override/0 = ExtResource("6_vv0hl")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.38413, 0)
 shape = SubResource("ConvexPolygonShape3D_0aawl")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
-
 [node name="VehicleBody3D" type="VehicleBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.65288, 0, 0)
 script = ExtResource("18_y8ytg")
