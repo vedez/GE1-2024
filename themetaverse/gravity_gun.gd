@@ -37,7 +37,7 @@ func _physics_process(delta):
 			print(picked_up.name)
 			var hold_pos = camera.global_position - camera.global_transform.basis.z * hold_distance
 			var to_hold_pos = hold_pos - picked_up.global_position
-			to_hold_pos = to_hold_pos.normalized()
+			# to_hold_pos = to_hold_pos.normalized()
 			to_hold_pos *= power_factor
 			to_hold_pos = to_hold_pos.limit_length(maximum_velocity)
 			picked_up.linear_velocity = to_hold_pos
