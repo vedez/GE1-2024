@@ -1,7 +1,6 @@
 extends Node3D
 
 @export var custom_font : Font
-@export var zylann_example := false
 @export var test_text := true
 @export var test_graphs := false
 @export var more_test_cases := true
