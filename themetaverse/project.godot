@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Themetaverse"
 run/main_scene="res://GroupOftanksGame.tscn"
-config/features=PackedStringArray("4.1", "Mobile")
+config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]
@@ -78,6 +78,10 @@ move_down={
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":12,"pressure":0.0,"pressed":true,"script":null)
 ]
 }
+
+[physics]
+
+3d/default_gravity=0.0
 
 [rendering]
 

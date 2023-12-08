@@ -118,7 +118,6 @@ tracker = &"left_hand"
 [node name="jet" type="Node3D" parent="Player/XROrigin3D/XRController3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.1)
 script = ExtResource("4_3dkdw")
-power = 1
 
 [node name="JetGun" parent="Player/XROrigin3D/XRController3D/jet" instance=ExtResource("2_ek2v2")]
 transform = Transform3D(9.55343e-17, -2.18557e-09, -0.05, -0.05, -2.18557e-09, 0, -2.18557e-09, 0.05, -2.18557e-09, 0, 0, 0)
@@ -145,7 +144,6 @@ tracker = &"right_hand"
 [node name="jet" type="Node3D" parent="Player/XROrigin3D/XRController3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.1)
 script = ExtResource("4_3dkdw")
-power = 1
 
 [node name="JetGun" parent="Player/XROrigin3D/XRController3D2/jet" instance=ExtResource("2_ek2v2")]
 transform = Transform3D(9.55343e-17, -2.18557e-09, -0.05, -0.05, -2.18557e-09, 0, -2.18557e-09, 0.05, -2.18557e-09, 0, 0, 0)

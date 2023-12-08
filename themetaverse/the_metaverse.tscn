@@ -166,12 +166,8 @@ surface_material_override/0 = ExtResource("11_ijga7")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="world"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-size = Vector3(1000, 1, 1000)
-
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="world"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.4147, 9.57493, 0)
-radius = 1.826
-height = 6.699
+size = Vector3(5000, 1, 5000)
+material = ExtResource("11_ijga7")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.1958, 0, 4.51345)

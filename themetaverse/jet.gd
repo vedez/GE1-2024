@@ -16,7 +16,7 @@ func _ready():
 var lerped_trigger = 0.0
 
 func _physics_process(delta):
-	
+	# nprint(delta)
 	if trigger > 0:
 		flames.emitting = true
 	else:
