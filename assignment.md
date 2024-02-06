@@ -18,6 +18,8 @@ The project can be VR, AR, Mixed Reality, 3D with a game controller or keyboard 
 
 Some ideas:
 
+- Laurel & Hardy or Morcambe & Wise dances in VR
+- Playing the base drum in a marching band in VR
 - Recreate the Kevin St. Snackery in VR
 - A virtual reality exorcism
 - Confession in the Metaverse
